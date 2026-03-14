@@ -1,0 +1,194 @@
+<x-app-layout :metaTitle="$project->meta_title ?? $project->title" :metaDescription="$project->meta_description ?? $project->excerpt">
+
+{{-- HERO --}}
+<section class="relative min-h-[80vh] flex flex-col justify-end pb-20 overflow-hidden">
+    @if($project->getFirstMediaUrl('cover'))
+    <div class="absolute inset-0">
+        <img src="{{ $project->getFirstMediaUrl('cover') }}" alt="{{ $project->title }}"
+             class="w-full h-full object-cover" id="project-cover">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-bg)]/60 to-[var(--color-bg)]"></div>
+    </div>
+    @endif
+    <div class="container mx-auto px-6 relative z-10">
+        @if($project->category)
+        <span class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase" data-animate>
+            {{ $project->category->name }}
+        </span>
+        @endif
+        <h1 class="font-heading font-extrabold text-5xl md:text-7xl mt-4 mb-6 leading-none" data-split>
+            {{ $project->title }}
+        </h1>
+        @if($project->excerpt)
+        <p class="text-[var(--color-text-muted)] text-xl max-w-2xl" data-animate>{{ $project->excerpt }}</p>
+        @endif
+        <div class="flex flex-wrap gap-10 mt-12 pt-12 border-t border-white/10" data-animate>
+            @if($project->client)
+            <div>
+                <p class="text-[var(--color-text-muted)] text-xs uppercase tracking-widest mb-1">Client</p>
+                <p class="font-medium">{{ $project->client }}</p>
+            </div>
+            @endif
+            @if($project->year)
+            <div>
+                <p class="text-[var(--color-text-muted)] text-xs uppercase tracking-widest mb-1">Year</p>
+                <p class="font-medium">{{ $project->year }}</p>
+            </div>
+            @endif
+            @if($project->url)
+            <div>
+                <p class="text-[var(--color-text-muted)] text-xs uppercase tracking-widest mb-1">Link</p>
+                <a href="{{ $project->url }}" target="_blank" rel="noopener noreferrer"
+                   class="font-medium text-[var(--color-accent)] hover:underline">
+                    Visit Project →
+                </a>
+            </div>
+            @endif
+        </div>
+    </div>
+</section>
+
+{{-- Cover image full-bleed --}}
+@if($project->getFirstMediaUrl('cover'))
+<div class="mb-20" data-animate>
+    <img src="{{ $project->getFirstMediaUrl('cover') }}" alt="{{ $project->title }}"
+         class="w-full aspect-video object-cover" id="project-cover-full">
+</div>
+@endif
+
+{{-- Description --}}
+@if($project->description)
+<section class="max-w-3xl mx-auto px-6 mb-20" data-animate>
+    <div class="prose-portfolio">
+        {!! $project->description !!}
+    </div>
+</section>
+@endif
+
+{{-- Gallery --}}
+@php $gallery = $project->getMedia('gallery'); @endphp
+@if($gallery->count())
+<section class="container mx-auto px-6 mb-20">
+    <h2 class="font-heading font-semibold text-2xl mb-8" data-animate>Gallery</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4" x-data="lightbox()">
+        @foreach($gallery as $i => $media)
+        <div class="{{ $i === 0 ? 'col-span-2 row-span-2' : '' }} aspect-square overflow-hidden rounded-lg cursor-pointer" data-animate
+             @click="open('{{ $media->getUrl() }}')">
+            <img src="{{ $media->getUrl() }}" alt="{{ $project->title }}"
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                 loading="lazy">
+        </div>
+        @endforeach
+        {{-- Lightbox --}}
+        <div x-show="isOpen" x-transition class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+             @click.self="isOpen = false" @keydown.escape.window="isOpen = false" x-cloak>
+            <button @click="isOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl">✕</button>
+            <img :src="currentImage" class="max-h-[90vh] max-w-[90vw] object-contain rounded-lg">
+        </div>
+    </div>
+</section>
+@endif
+
+{{-- Video Embeds --}}
+@if($project->video_embeds)
+<section class="container mx-auto px-6 mb-20">
+    <h2 class="font-heading font-semibold text-2xl mb-8" data-animate>Videos</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+        @foreach($project->video_embeds as $embed)
+        <div class="aspect-video rounded-xl overflow-hidden" data-animate>
+            @if($embed['platform'] === 'youtube')
+            <iframe src="https://www.youtube.com/embed/{{ $embed['embed_id'] }}"
+                    title="{{ $embed['title'] ?? $project->title }}"
+                    class="w-full h-full" allowfullscreen loading="lazy"></iframe>
+            @elseif($embed['platform'] === 'vimeo')
+            <iframe src="https://player.vimeo.com/video/{{ $embed['embed_id'] }}"
+                    title="{{ $embed['title'] ?? $project->title }}"
+                    class="w-full h-full" allowfullscreen loading="lazy"></iframe>
+            @endif
+        </div>
+        @endforeach
+    </div>
+</section>
+@endif
+
+{{-- Video Files --}}
+@php $videos = $project->getMedia('videos'); @endphp
+@if($videos->count())
+<section class="container mx-auto px-6 mb-20">
+    @foreach($videos as $video)
+    <div class="aspect-video rounded-xl overflow-hidden mb-6" data-animate>
+        <video src="{{ $video->getUrl() }}" controls class="w-full h-full rounded-xl">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+    @endforeach
+</section>
+@endif
+
+{{-- CTA --}}
+<section class="py-20 text-center" data-animate>
+    <div class="container mx-auto px-6">
+        <h2 class="font-heading font-bold text-3xl md:text-4xl mb-6">Have a similar challenge?</h2>
+        <a href="{{ route('contact') }}"
+           class="inline-block bg-[var(--color-accent)] text-[var(--color-bg)] font-semibold px-10 py-4 rounded-full hover:bg-[var(--color-accent-dark)] transition-colors">
+            Let's talk →
+        </a>
+    </div>
+</section>
+
+{{-- Prev / Next --}}
+<div class="border-t border-[var(--color-border)]">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-2">
+            @if($previous)
+            <a href="{{ route('project', $previous) }}" class="group py-12 pr-6 border-r border-[var(--color-border)]">
+                <p class="text-[var(--color-text-muted)] text-xs uppercase tracking-widest mb-2">← Previous</p>
+                <p class="font-heading font-semibold text-lg group-hover:text-[var(--color-accent)] transition-colors">
+                    {{ $previous->title }}
+                </p>
+            </a>
+            @else
+            <div class="py-12 pr-6 border-r border-[var(--color-border)]"></div>
+            @endif
+            @if($next)
+            <a href="{{ route('project', $next) }}" class="group py-12 pl-6 text-right">
+                <p class="text-[var(--color-text-muted)] text-xs uppercase tracking-widest mb-2">Next →</p>
+                <p class="font-heading font-semibold text-lg group-hover:text-[var(--color-accent)] transition-colors">
+                    {{ $next->title }}
+                </p>
+            </a>
+            @else
+            <div class="py-12 pl-6"></div>
+            @endif
+        </div>
+    </div>
+</div>
+
+@push('scripts')
+<script>
+function lightbox() {
+    return {
+        isOpen: false,
+        currentImage: '',
+        open(url) { this.currentImage = url; this.isOpen = true; }
+    };
+}
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.Splitting) {
+        Splitting({ target: '[data-split]', by: 'chars' });
+        gsap.from('[data-split] .char', {
+            y: '110%', opacity: 0, duration: 0.9,
+            stagger: 0.02, ease: 'power4.out', delay: 0.2
+        });
+    }
+    // Parallax cover
+    const cover = document.getElementById('project-cover-full');
+    if (cover) {
+        gsap.to(cover, {
+            yPercent: 20, ease: 'none',
+            scrollTrigger: { trigger: cover, start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+    }
+});
+</script>
+@endpush
+</x-app-layout>
