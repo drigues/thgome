@@ -26,9 +26,6 @@
     @endisset
 </head>
 <body class="bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
-    <div id="scroll-progress"></div>
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
     @include('partials.nav')
     <main id="main-content">
         {{ $slot }}
