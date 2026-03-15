@@ -4,7 +4,7 @@
         :class="scrolled ? 'bg-[var(--color-bg)]/95 backdrop-blur-sm border-b border-[var(--color-border)]' : ''">
     <nav class="container mx-auto px-6 py-5 flex items-center justify-between">
         <a href="{{ route('home') }}" class="font-heading font-bold text-xl tracking-tight">
-            TR<span class="text-[var(--color-accent)]">.</span>
+            thgo<span class="text-[var(--color-accent)]">.me</span>
         </a>
         <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
             <li><a href="{{ route('projects') }}" class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">Work</a></li>

@@ -5,7 +5,6 @@
     <div class="container mx-auto px-6 relative z-10">
         <p class="text-[var(--color-accent)] font-mono text-xs tracking-[0.25em] uppercase mb-8 opacity-0"
            data-hero-tag>
-            Product Designer · 10+ years · PT / US / UK
         </p>
         <h1 class="font-heading font-extrabold leading-none mb-8 text-[clamp(72px,11vw,180px)]" data-split>
             {!! nl2br(e(\App\Models\Setting::get('hero_title', "Product\nDesigner."))) !!}
