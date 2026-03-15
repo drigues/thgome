@@ -22,6 +22,14 @@
                 </a>
             </li>
         </ul>
+        <button
+            onclick="toggleTheme()"
+            id="theme-toggle"
+            class="flex items-center justify-center w-9 h-9 rounded-full border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors"
+            aria-label="Toggle theme">
+            <span id="theme-icon-dark" class="text-sm">☀</span>
+            <span id="theme-icon-light" class="text-sm hidden">☾</span>
+        </button>
         <button @click="open = !open" class="md:hidden flex flex-col gap-1.5 p-2 z-50" aria-label="Menu">
             <span :class="open ? 'rotate-45 translate-y-2' : ''" class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center"></span>
             <span :class="open ? 'opacity-0' : ''" class="block w-6 h-0.5 bg-current transition-opacity duration-300"></span>

@@ -22,6 +22,32 @@
     h1,h2,h3,h4,h5 { font-family: var(--font-heading); }
 }
 
+html.light {
+    --color-bg:         #F5F4F0;
+    --color-bg-alt:     #ECEAE4;
+    --color-bg-card:    #E4E2DC;
+    --color-text:       #111111;
+    --color-text-muted: #666666;
+    --color-accent:     #1A1A1A;
+    --color-accent-dark:#333333;
+    --color-border:     #D0CEC8;
+}
+
+html.light body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+html.light .prose-portfolio p,
+html.light .prose-portfolio ul li,
+html.light .prose-portfolio blockquote {
+    color: var(--color-text-muted);
+}
+
+html.light .prose-portfolio blockquote {
+    background: var(--color-bg-card);
+}
+
 /* Splitting.js chars */
 .char { display: inline-block; overflow: hidden; }
 
