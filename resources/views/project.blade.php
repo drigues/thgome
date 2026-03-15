@@ -57,9 +57,42 @@
 
 {{-- Description --}}
 @if($project->description)
-<section class="max-w-3xl mx-auto px-6 mb-20" data-animate>
-    <div class="prose-portfolio">
-        {!! $project->description !!}
+<section class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-[1fr_320px] gap-16 items-start max-w-6xl mx-auto">
+
+            {{-- Main content --}}
+            <div class="prose-portfolio min-w-0" data-animate>
+                {!! $project->description !!}
+            </div>
+
+            {{-- Sticky sidebar --}}
+            <aside class="hidden lg:block">
+                <div class="sticky top-32 space-y-3">
+                    <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-4">On this page</p>
+                    @php
+                        $headings = [];
+                        preg_match_all('/<h2[^>]*>(.*?)<\/h2>/i', $project->description, $matches);
+                        $headings = $matches[1] ?? [];
+                    @endphp
+                    @foreach($headings as $heading)
+                    <div class="border-l-2 border-[var(--color-border)] pl-4 py-1 hover:border-[var(--color-accent)] transition-colors">
+                        <p class="text-xs text-[var(--color-text-muted)] leading-snug">{{ strip_tags($heading) }}</p>
+                    </div>
+                    @endforeach
+
+                    @if($project->url)
+                    <div class="pt-6">
+                        <a href="{{ $project->url }}" target="_blank" rel="noopener noreferrer"
+                           class="flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] hover:underline">
+                            Visit project →
+                        </a>
+                    </div>
+                    @endif
+                </div>
+            </aside>
+
+        </div>
     </div>
 </section>
 @endif

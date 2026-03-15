@@ -38,16 +38,6 @@ html.light body {
     color: var(--color-text);
 }
 
-html.light .prose-portfolio p,
-html.light .prose-portfolio ul li,
-html.light .prose-portfolio blockquote {
-    color: var(--color-text-muted);
-}
-
-html.light .prose-portfolio blockquote {
-    background: var(--color-bg-card);
-}
-
 /* Splitting.js chars */
 .char { display: inline-block; overflow: hidden; }
 
@@ -55,30 +45,118 @@ html.light .prose-portfolio blockquote {
 #main-content { transition: opacity 0.3s ease; }
 
 /* Prose para case studies */
-.prose-portfolio h2 {
-    font-family: var(--font-heading); font-size: 1.75rem;
-    font-weight: 700; margin-top: 3rem; margin-bottom: 1rem;
-    color: var(--color-text);
-}
-.prose-portfolio h3 {
-    font-family: var(--font-heading); font-size: 1.25rem;
-    font-weight: 600; color: var(--color-accent);
-    margin-top: 2rem; margin-bottom: 0.75rem;
-}
-.prose-portfolio h4 {
-    font-family: var(--font-heading); font-size: 1rem;
-    font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;
+.prose-portfolio {
+    font-size: 1.0625rem;
+    line-height: 1.85;
     color: var(--color-text-muted);
 }
-.prose-portfolio p { margin-bottom: 1.25rem; line-height: 1.8; color: var(--color-text-muted); }
-.prose-portfolio ul { margin-bottom: 1.25rem; padding-left: 1.5rem; }
-.prose-portfolio ul li { margin-bottom: 0.5rem; color: var(--color-text-muted); line-height: 1.7; }
-.prose-portfolio ul li::marker { color: var(--color-accent); }
+
+.prose-portfolio h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: 4rem;
+    margin-bottom: 1.25rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    line-height: 1.2;
+}
+
+.prose-portfolio h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+.prose-portfolio h4 {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-muted);
+    margin-top: 2rem;
+    margin-bottom: 0.875rem;
+}
+
+.prose-portfolio p {
+    margin-bottom: 1.5rem;
+    color: var(--color-text-muted);
+}
+
+.prose-portfolio ul {
+    margin-bottom: 1.75rem;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.prose-portfolio ul li {
+    display: flex;
+    gap: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-card);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.prose-portfolio ul li::before {
+    content: '→';
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+}
+
 .prose-portfolio blockquote {
     border-left: 3px solid var(--color-accent);
-    padding: 1rem 1.5rem; margin: 2rem 0;
-    background: var(--color-bg-card); border-radius: 0 8px 8px 0;
-    font-style: italic; color: var(--color-text-muted);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    background: var(--color-bg-card);
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--color-text);
 }
-.prose-portfolio a { color: var(--color-accent); }
-.prose-portfolio strong { color: var(--color-text); font-weight: 600; }
+
+.prose-portfolio blockquote::before {
+    content: '"';
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-style: normal;
+}
+
+.prose-portfolio strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.prose-portfolio a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Light mode overrides */
+html.light .prose-portfolio ul li {
+    background: var(--color-bg-card);
+    border-color: var(--color-border);
+}
+
+html.light .prose-portfolio blockquote {
+    background: var(--color-bg-card);
+}
