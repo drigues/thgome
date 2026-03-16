@@ -41,6 +41,11 @@ html.light body {
 /* Splitting.js chars */
 .char { display: inline-block; overflow: hidden; }
 
+[data-split] .word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
 /* Page transition */
 #main-content { transition: opacity 0.3s ease; }
 
