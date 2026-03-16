@@ -42,17 +42,17 @@
                         @if($project->year)<span class="text-[var(--color-border)]">·</span><span>{{ $project->year }}</span>@endif
                     </div>
                     <span class="text-[var(--color-accent)] text-xl opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 shrink-0">→</span>
-                    <div class="case-hover-image pointer-events-none absolute right-56 top-1/2 -translate-y-1/2
+                    {{-- <div class="case-hover-image pointer-events-none absolute right-56 top-1/2 -translate-y-1/2
                                 w-72 h-44 rounded-xl overflow-hidden opacity-0 group-hover:opacity-100
                                 transition-all duration-500 scale-95 group-hover:scale-100 z-10 hidden xl:block">
                         <img src="{{ $project->cover_url }}" alt="{{ $project->title }}" class="w-full h-full object-cover">
-                    </div>
+                    </div> --}}
                 </a>
                 @endforeach
             </div>
 
             {{-- Mobile: grid cards --}}
-            <div class="md:hidden grid grid-cols-2 gap-4">
+            <div class="md:hidden grid grid-cols-1 gap-8">
                 @foreach($projects as $project)
                 <article
                     x-show="active === 'all' || active === '{{ $project->category?->slug }}'"
