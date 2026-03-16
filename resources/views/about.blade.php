@@ -31,7 +31,7 @@
                 </a>
                 @endif
                 <div class="grid grid-cols-3 gap-4">
-                    @foreach([['PT','Native'],['EN','C1'],['ES','B1']] as $lang)
+                    @foreach([['EN','C1'],['ES','B1']],['PT','Native'] as $lang)
                     <div class="border border-[var(--color-border)] rounded-xl p-4 text-center">
                         <p class="font-heading font-bold text-2xl text-[var(--color-accent)]">{{ $lang[0] }}</p>
                         <p class="text-[var(--color-text-muted)] text-xs mt-1">{{ $lang[1] }}</p>
@@ -43,21 +43,30 @@
     </div>
 </section>
 
-{{-- RECOGNITION --}}
-<section class="py-32 bg-[var(--color-bg-alt)]">
+
+{{-- EDUCATION --}}
+<section class="py-32">
     <div class="container mx-auto px-6">
-        <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-4" data-animate>Recognition</p>
-        <h2 class="font-heading font-bold text-4xl md:text-5xl mb-16" data-animate>Awards & Features</h2>
-        <div class="grid md:grid-cols-2 gap-6">
+        <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-4" data-animate>Education</p>
+        <h2 class="font-heading font-bold text-4xl md:text-5xl mb-16" data-animate>Academic Background</h2>
+        <div class="grid md:grid-cols-2 gap-8">
             <div class="border border-[var(--color-border)] rounded-2xl p-8" data-animate>
-                <p class="text-[var(--color-accent)] font-heading font-bold text-3xl mb-2">Google</p>
-                <p class="font-heading font-semibold text-xl mb-3">Material Design Award — Accessibility</p>
-                <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">Recognized for building inclusive, accessible interfaces that set the bar for enterprise UX standards.</p>
+                <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest mb-2">2026 — 2028</p>
+                <h3 class="font-heading font-semibold text-xl mb-1">CENFIM</h3>
+                <p class="text-[var(--color-text-muted)] text-sm">Technical in Robotics, and Automation Engineering</p>
+                <p class="text-[var(--color-text-muted)] text-sm mt-1">Caldas da Rainha, Portugal</p>
             </div>
             <div class="border border-[var(--color-border)] rounded-2xl p-8" data-animate>
-                <p class="text-[var(--color-accent)] font-heading font-bold text-3xl mb-2">Google</p>
-                <p class="font-heading font-semibold text-xl mb-3">Material Design Award — Innovation</p>
-                <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">Awarded for pushing design boundaries with novel interaction patterns and AI-augmented workflows.</p>
+                <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest mb-2">2022 — 2023</p>
+                <h3 class="font-heading font-semibold text-xl mb-1">IADE — Universidade Europeia</h3>
+                <p class="text-[var(--color-text-muted)] text-sm">Postgraduate in UX/UI Design</p>
+                <p class="text-[var(--color-text-muted)] text-sm mt-1">Lisbon, Portugal</p>
+            </div>
+            <div class="border border-[var(--color-border)] rounded-2xl p-8" data-animate>
+                <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest mb-2">2015 — 2018</p>
+                <h3 class="font-heading font-semibold text-xl mb-1">College of Computing Technology</h3>
+                <p class="text-[var(--color-text-muted)] text-sm">BSc in Computing & Multimedia</p>
+                <p class="text-[var(--color-text-muted)] text-sm mt-1">Dublin, Ireland</p>
             </div>
         </div>
     </div>
@@ -110,14 +119,15 @@
         <h2 class="font-heading font-bold text-4xl md:text-5xl mb-16" data-animate>Timeline</h2>
         <div class="space-y-0 border-l-2 border-[var(--color-border)] ml-4">
             @foreach([
-                ['2024 — Present','Product Designer','McKesson','Enterprise healthcare platform — redesigning clinical workflows for 75,000+ users across North America.'],
-                ['2023 — 2024','Senior UX Designer','BladeInsight','Built and scaled design system from scratch for IoT wind-energy platform. Led cross-functional team of 8.'],
+                ['2025 — Present','Product Builder','Thr33 Studio','Building digital products for the portguese market'],
+                ['2023 — 2025','Product Designer','McKesson','Enterprise healthcare platform — redesigning clinical workflows for 75,000+ users across North America.'],
+                ['2023 — 2023','Senior UX Designer','BladeInsight','Built and scaled design system from scratch for IoT wind-energy platform. Led cross-functional team of 8.'],
                 ['2022 — 2023','Product Designer','MindTools','Redesigned the core learning experience for 30M+ global users. Led research sprints and shipped 3 major features.'],
                 ['2021 — 2022','UX/UI Designer','Montepascual','Brand identity and digital product for premium wine producer. E-commerce + tasting experience platform.'],
                 ['2019 — 2021','UX/UI Designer','Progress Systems','Fintech products — payment processing dashboards, merchant onboarding, compliance workflows.'],
                 ['2017 — 2019','Web Designer','Granber','Full-stack web design for industrial textiles. E-commerce, B2B portal, product configurator.'],
                 ['2015 — 2017','Freelance Designer','Independent','Multi-disciplinary design work across branding, web, and print for startups and SMEs in Dublin & Lisbon.'],
-                ['2013 — 2015','Junior Designer','Edson Queiroz Group','Visual design and marketing materials for one of Brazil\'s largest conglomerates.'],
+                ['2013 — 2015','Web Designer','Edson Queiroz Group','Visual design and marketing materials for one of Brazil\'s largest conglomerates.'],
             ] as $entry)
             <div class="relative pl-10 pb-12" data-animate>
                 <div class="absolute left-0 top-1 w-3 h-3 rounded-full bg-[var(--color-accent)] -translate-x-[7px]"></div>
@@ -131,23 +141,22 @@
     </div>
 </section>
 
-{{-- EDUCATION --}}
-<section class="py-32">
+
+{{-- RECOGNITION --}}
+<section class="py-32 bg-[var(--color-bg-alt)]">
     <div class="container mx-auto px-6">
-        <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-4" data-animate>Education</p>
-        <h2 class="font-heading font-bold text-4xl md:text-5xl mb-16" data-animate>Academic Background</h2>
-        <div class="grid md:grid-cols-2 gap-8">
+        <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-4" data-animate>Recognition</p>
+        <h2 class="font-heading font-bold text-4xl md:text-5xl mb-16" data-animate>Awards & Features</h2>
+        <div class="grid md:grid-cols-2 gap-6">
             <div class="border border-[var(--color-border)] rounded-2xl p-8" data-animate>
-                <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest mb-2">2022 — 2023</p>
-                <h3 class="font-heading font-semibold text-xl mb-1">IADE — Universidade Europeia</h3>
-                <p class="text-[var(--color-text-muted)] text-sm">Postgraduate in UX/UI Design</p>
-                <p class="text-[var(--color-text-muted)] text-sm mt-1">Lisbon, Portugal</p>
+                <p class="text-[var(--color-accent)] font-heading font-bold text-3xl mb-2">Google</p>
+                <p class="font-heading font-semibold text-xl mb-3">Material Design Award — Accessibility</p>
+                <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">Recognized for building inclusive, accessible interfaces that set the bar for enterprise UX standards.</p>
             </div>
             <div class="border border-[var(--color-border)] rounded-2xl p-8" data-animate>
-                <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest mb-2">2015 — 2018</p>
-                <h3 class="font-heading font-semibold text-xl mb-1">College of Computing Technology</h3>
-                <p class="text-[var(--color-text-muted)] text-sm">BSc in Computing & Multimedia</p>
-                <p class="text-[var(--color-text-muted)] text-sm mt-1">Dublin, Ireland</p>
+                <p class="text-[var(--color-accent)] font-heading font-bold text-3xl mb-2">Google</p>
+                <p class="font-heading font-semibold text-xl mb-3">Material Design Award — Innovation</p>
+                <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">Awarded for pushing design boundaries with novel interaction patterns and AI-augmented workflows.</p>
             </div>
         </div>
     </div>
