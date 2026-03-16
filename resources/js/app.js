@@ -36,20 +36,19 @@ document.querySelectorAll('a[href]').forEach(a => {
 
 window.toggleTheme = function() {
     const html = document.documentElement;
-    const isLight = html.classList.toggle('light');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-
-    document.getElementById('theme-icon-dark').classList.toggle('hidden', isLight);
-    document.getElementById('theme-icon-light').classList.toggle('hidden', !isLight);
+    const isDark = html.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    document.getElementById('theme-icon-dark').classList.toggle('hidden', isDark);
+    document.getElementById('theme-icon-light').classList.toggle('hidden', !isDark);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const isLight = document.documentElement.classList.contains('light');
+    const isDark = document.documentElement.classList.contains('dark');
     const iconDark = document.getElementById('theme-icon-dark');
     const iconLight = document.getElementById('theme-icon-light');
     if (iconDark && iconLight) {
-        iconDark.classList.toggle('hidden', isLight);
-        iconLight.classList.toggle('hidden', !isLight);
+        iconDark.classList.toggle('hidden', isDark);
+        iconLight.classList.toggle('hidden', !isDark);
     }
 });
 

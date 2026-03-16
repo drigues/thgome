@@ -5,7 +5,7 @@
     
     <nav class="container mx-auto px-6 py-5 flex items-center justify-between">
         <a href="{{ route('home') }}" class="font-heading font-bold text-xl tracking-tight">
-            thgo<span class="text-[var(--color-accent)]">.me</span>
+            thgo<span style="color: var(--color-neon)">.me</span>
         </a>
         <span class="flex gap-4">
         <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
@@ -29,8 +29,8 @@
             id="theme-toggle"
             class="flex items-center justify-center w-9 h-9 rounded-full border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors"
             aria-label="Toggle theme">
-            <span id="theme-icon-dark" class="text-sm">☀</span>
-            <span id="theme-icon-light" class="text-sm hidden">☾</span>
+            <span id="theme-icon-dark" class="text-sm">☾</span>
+            <span id="theme-icon-light" class="text-sm hidden">☀</span>
         </button>
         <button @click="open = !open" class="md:hidden flex flex-col gap-1.5 p-2 z-50" aria-label="Menu">
             <span :class="open ? 'rotate-45 translate-y-2' : ''" class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center"></span>
@@ -48,7 +48,7 @@
         <ul class="flex flex-col gap-8">
             <li><a href="{{ route('projects') }}" @click="open=false" class="font-heading font-bold text-5xl">Work</a></li>
             <li><a href="{{ route('about') }}" @click="open=false" class="font-heading font-bold text-5xl">About</a></li>
-            <li><a href="{{ route('blog') }}" @click="open=false" class="font-heading font-bold text-5xl">Blog</a></li>
+            <!-- li><a href="{{ route('blog') }}" @click="open=false" class="font-heading font-bold text-5xl">Blog</a></li -->
             <li><a href="{{ route('contact') }}" @click="open=false" class="font-heading font-bold text-5xl text-[var(--color-accent)]">Contact</a></li>
         </ul>
     </div>

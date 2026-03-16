@@ -15,8 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            if (theme === 'light') document.documentElement.classList.add('light');
+            const theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') document.documentElement.classList.add('dark');
+            else document.documentElement.classList.remove('dark');
         })();
     </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])

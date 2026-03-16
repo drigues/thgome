@@ -3,10 +3,11 @@
 {{-- HERO --}}
 <section class="relative min-h-screen flex flex-col justify-end pb-24 overflow-hidden">
     <div class="container mx-auto px-6 relative z-10">
-        <p class="text-[var(--color-accent)] font-mono text-xs tracking-[0.25em] uppercase mb-8 opacity-0"
+        <!--p class="font-mono tracking-[0.25em] uppercase mb-8 opacity-0"
+           style="color: var(--color-neon); background: #111; display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem;"
            data-hero-tag>
-        </p>
-        <h1 class="font-heading font-extrabold leading-none mb-8 text-[clamp(2.8rem,8vw,140px)]" data-split>
+        </p -->
+        <h1 class="font-heading font-extrabold leading-none mb-8 mt-0 text-[clamp(2.8rem,8vw,140px)]" data-split>
             {!! nl2br(e(\App\Models\Setting::get('hero_title', "Product\nDesigner."))) !!}
         </h1>
         <p class="text-[var(--color-text-muted)] text-xl max-w-lg mb-12 opacity-0" data-hero-sub>
@@ -40,7 +41,7 @@
 <section class="py-32 relative">
     <div class="container mx-auto px-6">
         <div class="relative mb-20">
-            <span class="absolute -top-16 right-0 font-heading font-bold text-[clamp(80px,15vw,200px)] text-[var(--color-text)] opacity-[0.03] select-none leading-none">01</span>
+            <span class="absolute -top-16 right-0 font-heading font-bold text-[clamp(80px,15vw,200px)] text-[var(--color-text)] opacity-[0.06] select-none leading-none">01</span>
             <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-4" data-animate>Selected Work</p>
             <div class="flex items-end justify-between">
                 <h2 class="font-heading font-bold text-4xl md:text-5xl" data-animate>Cases that<br>moved the needle</h2>
@@ -54,7 +55,7 @@
             @foreach($featuredProjects as $i => $project)
             <a href="{{ route('project', $project) }}"
                class="case-row group relative flex items-center gap-6 py-8 overflow-hidden">
-                <span class="text-[var(--color-text-muted)] font-mono text-sm w-8 shrink-0 hidden sm:block">
+                <span class="font-mono w-8 shrink-0 hidden sm:block" style="color: var(--color-neon); background: #111; padding: 2px 6px; border-radius: 4px; font-size: 0.65rem;">
                     {{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}
                 </span>
                 <h3 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl flex-1 leading-none
@@ -111,7 +112,7 @@
         <div class="grid lg:grid-cols-5 gap-16 items-start">
             <div class="lg:col-span-3">
                 <div class="relative">
-                    <span class="absolute -top-12 -left-4 font-heading font-bold text-[clamp(60px,12vw,160px)] text-[var(--color-text)] opacity-[0.04] select-none leading-none">02</span>
+                    <span class="absolute -top-12 -left-4 font-heading font-bold text-[clamp(60px,12vw,160px)] text-[var(--color-text)] opacity-[0.06] select-none leading-none">02</span>
                 </div>
                 <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-6" data-animate>About</p>
                 <h2 class="font-heading font-bold text-4xl md:text-5xl mb-8 leading-none" data-animate>
@@ -149,7 +150,7 @@
 <section class="py-32 bg-[var(--color-bg-alt)]">
     <div class="container mx-auto px-6">
         <div class="relative mb-20">
-            <span class="absolute -top-16 right-0 font-heading font-bold text-[clamp(80px,15vw,200px)] text-[var(--color-text)] opacity-[0.03] select-none leading-none">03</span>
+            <span class="absolute -top-16 right-0 font-heading font-bold text-[clamp(80px,15vw,200px)] text-[var(--color-text)] opacity-[0.06] select-none leading-none">03</span>
             <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-4" data-animate>Services</p>
             <h2 class="font-heading font-bold text-4xl md:text-5xl" data-animate>What I do best</h2>
         </div>

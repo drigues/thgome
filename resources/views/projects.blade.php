@@ -2,6 +2,7 @@
 
 <section class="pt-40 pb-12">
     <div class="container mx-auto px-6">
+        <p class="text-[var(--color-accent)] font-mono text-xs tracking-[0.25em] uppercase mb-8" data-animate>Carrer</p>
         <h1 class="font-heading font-extrabold leading-none mb-16 text-[clamp(80px,14vw,200px)]" data-split>Work</h1>
 
         <div x-data="{ active: 'all' }" class="space-y-12">

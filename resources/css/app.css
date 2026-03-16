@@ -6,14 +6,14 @@
 
 @layer base {
     :root {
-        --color-bg:         #0A0A0A;
-        --color-bg-alt:     #111111;
-        --color-bg-card:    #161616;
-        --color-text:       #F0F0F0;
-        --color-text-muted: #888888;
-        --color-accent:     #E8FF47;
-        --color-accent-dark:#c8df2a;
-        --color-border:     #222222;
+        --color-bg:         #F5F4F0;
+        --color-bg-alt:     #ECEAE4;
+        --color-bg-card:    #E4E2DC;
+        --color-text:       #111111;
+        --color-text-muted: #555555;
+        --color-accent:     #d27401;
+        --color-accent-dark:#be6900;
+        --color-border:     #D0CEC8;
         --font-heading: 'Syne', sans-serif;
         --font-body:    'Inter', sans-serif;
     }
@@ -22,20 +22,24 @@
     h1,h2,h3,h4,h5 { font-family: var(--font-heading); }
 }
 
-html.light {
-    --color-bg:         #F5F4F0;
-    --color-bg-alt:     #ECEAE4;
-    --color-bg-card:    #E4E2DC;
-    --color-text:       #111111;
-    --color-text-muted: #666666;
-    --color-accent:     #1A1A1A;
-    --color-accent-dark:#333333;
-    --color-border:     #D0CEC8;
+html.dark {
+    --color-bg:         #0A0A0A;
+    --color-bg-alt:     #111111;
+    --color-bg-card:    #161616;
+    --color-text:       #F0F0F0;
+    --color-text-muted: #888888;
+    --color-accent:     #d27401;
+    --color-accent-dark:#be6900;
+    --color-border:     #222222;
 }
 
-html.light body {
+html, html.light {
     background-color: var(--color-bg);
     color: var(--color-text);
+}
+
+:root {
+    --color-neon: #d27401;
 }
 
 /* Splitting.js chars */
@@ -156,20 +160,12 @@ html.light body {
     text-underline-offset: 3px;
 }
 
-/* Light mode overrides */
-html.light .prose-portfolio ul li {
+/* Dark mode overrides */
+html.dark .prose-portfolio ul li {
     background: var(--color-bg-card);
     border-color: var(--color-border);
 }
 
-html.light .prose-portfolio blockquote {
+html.dark .prose-portfolio blockquote {
     background: var(--color-bg-card);
-}
-
-
-
-/* thiago */
-
-h1.leading-none {
-    padding-top: 50px;
 }
