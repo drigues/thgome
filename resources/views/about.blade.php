@@ -53,19 +53,19 @@
             <div class="border border-[var(--color-border)] rounded-2xl p-8" data-animate>
                 <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest mb-2">2026 — 2028</p>
                 <h3 class="font-heading font-semibold text-xl mb-1">CENFIM</h3>
-                <p class="text-[var(--color-text-muted)] text-sm">Technical in Robotics, and Automation Engineering</p>
+                <p class="text-[var(--color-text-muted)] text-sm">Technical in Robotics and Industrial Automation</p>
                 <p class="text-[var(--color-text-muted)] text-sm mt-1">Caldas da Rainha, Portugal</p>
             </div>
             <div class="border border-[var(--color-border)] rounded-2xl p-8" data-animate>
                 <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest mb-2">2022 — 2023</p>
                 <h3 class="font-heading font-semibold text-xl mb-1">IADE — Universidade Europeia</h3>
-                <p class="text-[var(--color-text-muted)] text-sm">Postgraduate in UX/UI Design</p>
+                <p class="text-[var(--color-text-muted)] text-sm">Advanced Programme in Design Thinking and Innovation</p>
                 <p class="text-[var(--color-text-muted)] text-sm mt-1">Lisbon, Portugal</p>
             </div>
             <div class="border border-[var(--color-border)] rounded-2xl p-8" data-animate>
                 <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest mb-2">2015 — 2018</p>
                 <h3 class="font-heading font-semibold text-xl mb-1">College of Computing Technology</h3>
-                <p class="text-[var(--color-text-muted)] text-sm">BSc in Computing & Multimedia</p>
+                <p class="text-[var(--color-text-muted)] text-sm">Bachelor of Science in Information Technology</p>
                 <p class="text-[var(--color-text-muted)] text-sm mt-1">Dublin, Ireland</p>
             </div>
         </div>
