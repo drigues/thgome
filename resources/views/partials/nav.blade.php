@@ -7,7 +7,7 @@
         <a href="{{ route('home') }}" class="font-heading font-bold text-xl tracking-tight">
             thgo<span class="text-[var(--color-accent)]">.me</span>
         </a>
-        <span class="flex">
+        <span class="flex gap-4">
         <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
             <li><a href="{{ route('projects') }}" class="text-[var(--color-accent)] hover:text-[var(--color-text)] transition-colors">Work</a></li>
             <li><a href="{{ route('about') }}" class="text-[var(--color-accent)] hover:text-[var(--color-text)] transition-colors">About</a></li>
