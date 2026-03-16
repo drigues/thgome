@@ -5,7 +5,7 @@
         <div class="grid lg:grid-cols-2 gap-20">
             {{-- Left: Info --}}
             <div>
-                <h1 class="font-heading font-extrabold leading-none mb-10 text-[clamp(48px,8vw,100px)]" data-split>Let's build<br>something.</h1>
+                <h1 class="font-heading font-extrabold leading-none mb-10 text-[clamp(48px,8vw,100px)]" data-split>Let's build<br>some-<br>thing.</h1>
 
                 <div class="flex items-center gap-3 mb-8" data-animate>
                     <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
