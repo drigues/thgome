@@ -2,13 +2,15 @@
         x-data="{ open: false, scrolled: false }"
         x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 60)"
         :class="scrolled ? 'bg-[var(--color-bg)]/95 backdrop-blur-sm border-b border-[var(--color-border)]' : ''">
+    
     <nav class="container mx-auto px-6 py-5 flex items-center justify-between">
         <a href="{{ route('home') }}" class="font-heading font-bold text-xl tracking-tight">
             thgo<span class="text-[var(--color-accent)]">.me</span>
         </a>
+        <span class="flex">
         <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
-            <li><a href="{{ route('projects') }}" class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">Work</a></li>
-            <li><a href="{{ route('about') }}" class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">About</a></li>
+            <li><a href="{{ route('projects') }}" class="text-[var(--color-accent)] hover:text-[var(--color-text)] transition-colors">Work</a></li>
+            <li><a href="{{ route('about') }}" class="text-[var(--color-accent)] hover:text-[var(--color-text)] transition-colors">About</a></li>
             <li>
                 <span class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs">
                     <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block"></span>
@@ -35,6 +37,7 @@
             <span :class="open ? 'opacity-0' : ''" class="block w-6 h-0.5 bg-current transition-opacity duration-300"></span>
             <span :class="open ? '-rotate-45 -translate-y-2' : ''" class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center"></span>
         </button>
+        </span>
     </nav>
     <div x-show="open"
          x-transition:enter="transition duration-200"

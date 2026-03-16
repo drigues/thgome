@@ -6,7 +6,7 @@
         <p class="text-[var(--color-accent)] font-mono text-xs tracking-[0.25em] uppercase mb-8 opacity-0"
            data-hero-tag>
         </p>
-        <h1 class="font-heading font-extrabold leading-none mb-8 text-[clamp(72px,11vw,180px)]" data-split>
+        <h1 class="font-heading font-extrabold leading-none mb-8 text-[clamp(2.8rem,11vw,180px)]" data-split>
             {!! nl2br(e(\App\Models\Setting::get('hero_title', "Product\nDesigner."))) !!}
         </h1>
         <p class="text-[var(--color-text-muted)] text-xl max-w-lg mb-12 opacity-0" data-hero-sub>

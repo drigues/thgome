@@ -160,3 +160,11 @@ html.light .prose-portfolio ul li {
 html.light .prose-portfolio blockquote {
     background: var(--color-bg-card);
 }
+
+
+
+/* thiago */
+
+h1.leading-none {
+    padding-top: 50px;
+}
