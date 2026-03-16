@@ -84,25 +84,25 @@
 </section>
 
 {{-- MARQUEE --}}
-<div class="border-y border-[var(--color-border)] py-5 overflow-hidden">
+<div class="border-y border-[var(--color-border)] py-4 overflow-hidden">
     <div class="flex whitespace-nowrap">
-        <span class="marquee-inner flex gap-10 pr-10 text-[var(--color-text-muted)] text-xs font-medium tracking-widest uppercase">
-            @forelse($categories as $cat)
-            <span>{{ $cat->name }}</span><span class="text-[var(--color-accent)]">✦</span>
-            @empty
-            <span>Product Design</span><span class="text-[var(--color-accent)]">✦</span>
-            <span>UX Research</span><span class="text-[var(--color-accent)]">✦</span>
-            <span>Design Systems</span><span class="text-[var(--color-accent)]">✦</span>
-            <span>AI-augmented Workflows</span><span class="text-[var(--color-accent)]">✦</span>
-            @endforelse
-            @forelse($categories as $cat)
-            <span>{{ $cat->name }}</span><span class="text-[var(--color-accent)]">✦</span>
-            @empty
-            <span>Product Design</span><span class="text-[var(--color-accent)]">✦</span>
-            <span>Enterprise UX</span><span class="text-[var(--color-accent)]">✦</span>
-            <span>0→1 Products</span><span class="text-[var(--color-accent)]">✦</span>
-            @endforelse
-        </span>
+        <div class="marquee-inner flex items-center gap-12 pr-12 shrink-0">
+            @php
+            $items = $categories->count()
+                ? $categories->pluck('name')->toArray()
+                : ['Product Design','UX Research','Design Systems','Enterprise UX','0→1 Products','Fintech','AI-augmented Workflows','Interaction Design','Product Design','UX Research','Design Systems','Enterprise UX','0→1 Products','Fintech','AI-augmented Workflows','Interaction Design'];
+            @endphp
+            @foreach(array_merge($items,$items,$items,$items) as $item)
+            <span class="text-[var(--color-text-muted)] text-xs font-medium tracking-widest uppercase whitespace-nowrap">{{ $item }}</span>
+            <span style="color: var(--color-neon); padding: 1px 3px; border-radius: 2px; font-size: 0.6rem;">✦</span>
+            @endforeach
+        </div>
+        <div class="marquee-inner flex items-center gap-12 pr-12 shrink-0" aria-hidden="true">
+            @foreach(array_merge($items,$items,$items,$items) as $item)
+            <span class="text-[var(--color-text-muted)] text-xs font-medium tracking-widest uppercase whitespace-nowrap">{{ $item }}</span>
+            <span style="color: var(--color-neon); padding: 1px 3px; border-radius: 2px; font-size: 0.6rem;">✦</span>
+            @endforeach
+        </div>
     </div>
 </div>
 
@@ -264,10 +264,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Marquee
-    if (document.querySelector('.marquee-inner')) {
-        gsap.to('.marquee-inner', {
-            xPercent: -50, ease: 'none', repeat: -1, duration: 25,
-            modifiers: { xPercent: gsap.utils.wrap(-50, 0) }
+    const marquees = document.querySelectorAll('.marquee-inner');
+    if (marquees.length >= 2) {
+        const totalWidth = marquees[0].offsetWidth;
+        gsap.set(marquees[1], { x: totalWidth });
+        gsap.to(marquees, {
+            x: '-=' + totalWidth,
+            ease: 'none',
+            duration: 90,
+            repeat: -1,
+            modifiers: {
+                x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+            }
         });
     }
 });
