@@ -31,7 +31,7 @@
                 </a>
                 @endif
                 <div class="grid grid-cols-3 gap-4">
-                    @foreach([['EN','C1'],['ES','B1']],['PT','Native'] as $lang)
+                    @foreach([['EN','C1'],['ES','B1'],['PT','Native']] as $lang)
                     <div class="border border-[var(--color-border)] rounded-xl p-4 text-center">
                         <p class="font-heading font-bold text-2xl text-[var(--color-accent)]">{{ $lang[0] }}</p>
                         <p class="text-[var(--color-text-muted)] text-xs mt-1">{{ $lang[1] }}</p>
