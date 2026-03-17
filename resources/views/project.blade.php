@@ -3,11 +3,11 @@
 {{-- HERO --}}
 <section class="relative min-h-[80vh] flex flex-col justify-end pb-20 overflow-hidden">
     @if($project->getFirstMediaUrl('cover'))
-    <div class="absolute inset-0">
+    <!-- div class="absolute inset-0">
         <img src="{{ $project->getFirstMediaUrl('cover') }}" alt="{{ $project->title }}"
              class="w-full h-full object-cover" id="project-cover">
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-bg)]/60 to-[var(--color-bg)]"></div>
-    </div>
+    </div -->
     @endif
     <div class="container mx-auto px-6 relative z-10">
         @if($project->category)
@@ -55,24 +55,19 @@
 </div>
 @endif
 
-{{-- Description --}}
+{{-- Description Part 1 --}}
 @if($project->description)
 <section class="py-20">
     <div class="container mx-auto px-6">
-        <div class="grid lg:grid-cols-[1fr_320px] gap-16 items-start max-w-6xl mx-auto">
-
-            {{-- Main content --}}
-            <div class="prose-portfolio min-w-0" data-animate>
+        <div class="grid lg:grid-cols-[1fr_300px] gap-16 items-start max-w-6xl mx-auto">
+            <div class="prose-portfolio min-w-0">
                 {!! $project->description !!}
             </div>
-
-            {{-- Sticky sidebar --}}
             <aside class="hidden lg:block">
                 <div class="sticky top-32 space-y-3">
                     <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-4">On this page</p>
                     @php
-                        $headings = [];
-                        preg_match_all('/<h2[^>]*>(.*?)<\/h2>/i', $project->description, $matches);
+                        preg_match_all('/<h2[^>]*>(.*?)<\/h2>/i', $project->description . ($project->description_two ?? ''), $matches);
                         $headings = $matches[1] ?? [];
                     @endphp
                     @foreach($headings as $heading)
@@ -80,7 +75,6 @@
                         <p class="text-xs text-[var(--color-text-muted)] leading-snug">{{ strip_tags($heading) }}</p>
                     </div>
                     @endforeach
-
                     @if($project->url)
                     <div class="pt-6">
                         <a href="{{ $project->url }}" target="_blank" rel="noopener noreferrer"
@@ -91,69 +85,84 @@
                     @endif
                 </div>
             </aside>
-
         </div>
     </div>
 </section>
 @endif
 
-{{-- Gallery --}}
+{{-- Gallery (between the two descriptions) --}}
 @php $gallery = $project->getMedia('gallery'); @endphp
 @if($gallery->count())
-<section class="container mx-auto px-6 mb-20">
-    <h2 class="font-heading font-semibold text-2xl mb-8" data-animate>Gallery</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4" x-data="lightbox()">
-        @foreach($gallery as $i => $media)
-        <div class="{{ $i === 0 ? 'col-span-2 row-span-2' : '' }} aspect-square overflow-hidden rounded-lg cursor-pointer" data-animate
-             @click="open('{{ $media->getUrl() }}')">
-            <img src="{{ $media->getUrl() }}" alt="{{ $project->title }}"
-                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                 loading="lazy">
-        </div>
-        @endforeach
-        {{-- Lightbox --}}
-        <div x-show="isOpen" x-transition class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-             @click.self="isOpen = false" @keydown.escape.window="isOpen = false" x-cloak>
-            <button @click="isOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl">✕</button>
-            <img :src="currentImage" class="max-h-[90vh] max-w-[90vw] object-contain rounded-lg">
+<section class="py-16 bg-[var(--color-bg-alt)]">
+    <div class="container mx-auto px-6">
+        <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-8">Gallery</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-4" x-data="{ isOpen: false, currentImage: '' }">
+            @foreach($gallery as $i => $media)
+            <div class="{{ $i === 0 ? 'col-span-2 row-span-2' : '' }} overflow-hidden rounded-xl cursor-pointer aspect-square"
+                 @click="currentImage = '{{ $media->getUrl() }}'; isOpen = true">
+                <img src="{{ $media->getUrl() }}" alt="{{ $project->title }}"
+                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                     loading="lazy">
+            </div>
+            @endforeach
+
+            {{-- Lightbox --}}
+            <div x-show="isOpen" x-transition
+                 class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+                 @click.self="isOpen = false"
+                 @keydown.escape.window="isOpen = false">
+                <button @click="isOpen = false"
+                        class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl leading-none">✕</button>
+                <img :src="currentImage"
+                     class="max-h-[90vh] max-w-[90vw] object-contain rounded-xl">
+            </div>
         </div>
     </div>
 </section>
 @endif
 
-{{-- Video Embeds --}}
-@if($project->video_embeds)
-<section class="container mx-auto px-6 mb-20">
-    <h2 class="font-heading font-semibold text-2xl mb-8" data-animate>Videos</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-        @foreach($project->video_embeds as $embed)
-        <div class="aspect-video rounded-xl overflow-hidden" data-animate>
-            @if($embed['platform'] === 'youtube')
-            <iframe src="https://www.youtube.com/embed/{{ $embed['embed_id'] }}"
-                    title="{{ $embed['title'] ?? $project->title }}"
-                    class="w-full h-full" allowfullscreen loading="lazy"></iframe>
-            @elseif($embed['platform'] === 'vimeo')
-            <iframe src="https://player.vimeo.com/video/{{ $embed['embed_id'] }}"
-                    title="{{ $embed['title'] ?? $project->title }}"
-                    class="w-full h-full" allowfullscreen loading="lazy"></iframe>
-            @endif
+{{-- Description Part 2 --}}
+@if($project->description_two)
+<section class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="prose-portfolio min-w-0 lg:max-w-[calc(100%-316px)]">
+                {!! $project->description_two !!}
+            </div>
         </div>
-        @endforeach
     </div>
 </section>
 @endif
 
-{{-- Video Files --}}
+{{-- Videos --}}
 @php $videos = $project->getMedia('videos'); @endphp
-@if($videos->count())
-<section class="container mx-auto px-6 mb-20">
-    @foreach($videos as $video)
-    <div class="aspect-video rounded-xl overflow-hidden mb-6" data-animate>
-        <video src="{{ $video->getUrl() }}" controls class="w-full h-full rounded-xl">
-            Your browser does not support HTML5 video.
-        </video>
+@if($project->video_embeds || $videos->count())
+<section class="py-16 container mx-auto px-6">
+    <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-8">Videos</p>
+    <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        @if($project->video_embeds)
+            @foreach($project->video_embeds as $embed)
+            <div class="aspect-video rounded-xl overflow-hidden">
+                @if($embed['platform'] === 'youtube')
+                <iframe src="https://www.youtube.com/embed/{{ $embed['embed_id'] }}"
+                        title="{{ $embed['title'] ?? $project->title }}"
+                        class="w-full h-full" allowfullscreen loading="lazy"></iframe>
+                @elseif($embed['platform'] === 'vimeo')
+                <iframe src="https://player.vimeo.com/video/{{ $embed['embed_id'] }}"
+                        title="{{ $embed['title'] ?? $project->title }}"
+                        class="w-full h-full" allowfullscreen loading="lazy"></iframe>
+                @endif
+            </div>
+            @endforeach
+        @endif
+        @foreach($videos as $video)
+        <div class="aspect-video rounded-xl overflow-hidden">
+            <video src="{{ $video->getUrl() }}" controls class="w-full h-full rounded-xl">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+        @endforeach
     </div>
-    @endforeach
 </section>
 @endif
 

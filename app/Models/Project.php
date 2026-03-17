@@ -11,10 +11,10 @@ use Spatie\Sluggable\SlugOptions;
 
 class Project extends Model implements HasMedia
 {
-    use SoftDeletes, InteractsWithMedia, HasSlug;
+    use HasSlug, InteractsWithMedia, SoftDeletes;
 
     protected $fillable = [
-        'title', 'slug', 'excerpt', 'description', 'client', 'url',
+        'title', 'slug', 'excerpt', 'description', 'description_two', 'client', 'url',
         'year', 'category_id', 'is_featured', 'is_active',
         'sort_order', 'meta_title', 'meta_description', 'video_embeds',
     ];

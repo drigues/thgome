@@ -30,6 +30,8 @@ use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class ProjectResource extends Resource
@@ -99,8 +101,18 @@ class ProjectResource extends Resource
                         ->rows(2),
 
                     RichEditor::make('description')
-                        ->label('Descrição Completa')
+                        ->label('Descrição — Parte 1')
                         ->nullable()
+                        ->toolbarButtons([
+                            'bold', 'italic', 'underline', 'strike',
+                            'h2', 'h3', 'bulletList', 'orderedList',
+                            'link', 'blockquote', 'codeBlock',
+                        ]),
+
+                    RichEditor::make('description_two')
+                        ->label('Descrição — Parte 2')
+                        ->nullable()
+                        ->helperText('Exibido após a galeria de fotos no site público.')
                         ->toolbarButtons([
                             'bold', 'italic', 'underline', 'strike',
                             'h2', 'h3', 'bulletList', 'orderedList',
@@ -261,11 +273,11 @@ class ProjectResource extends Resource
         ];
     }
 
-    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
+    public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
             ->withoutGlobalScopes([
-                \Illuminate\Database\Eloquent\SoftDeletingScope::class,
+                SoftDeletingScope::class,
             ]);
     }
 }
