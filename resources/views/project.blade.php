@@ -63,8 +63,8 @@
             <div class="prose-portfolio min-w-0">
                 {!! $project->description !!}
             </div>
-            <aside class="hidden lg:block">
-                <div class="sticky top-32 space-y-3">
+            <aside class="hidden lg:block mt-8">
+                <div class="sticky mt-8 top-32 space-y-3">
                     <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-4">On this page</p>
                     @php
                         preg_match_all('/<h2[^>]*>(.*?)<\/h2>/i', $project->description . ($project->description_two ?? ''), $matches);
