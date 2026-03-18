@@ -41,14 +41,15 @@
     </nav>
     <div x-show="open"
          x-transition:enter="transition duration-200"
-         x-transition:enter-start="opacity-0 -translate-y-2"
+         x-transition:enter-start="opacity-0"
          x-transition:leave="transition duration-150"
-         x-transition:leave-end="opacity-0 -translate-y-2"
-         class="md:hidden fixed inset-0 bg-[var(--color-bg)] z-40 flex flex-col justify-center px-8">
+         x-transition:leave-end="opacity-0"
+         class="md:hidden fixed inset-0 z-40 flex flex-col justify-center px-8"
+         style="background-color: var(--color-bg);">
         <ul class="flex flex-col gap-8">
-            <li><a href="{{ route('projects') }}" @click="open=false" class="font-heading font-bold text-5xl">Work</a></li>
-            <li><a href="{{ route('about') }}" @click="open=false" class="font-heading font-bold text-5xl">About</a></li>
-            <!-- li><a href="{{ route('blog') }}" @click="open=false" class="font-heading font-bold text-5xl">Blog</a></li -->
+            <li><a href="{{ route('projects') }}" @click="open=false" class="font-heading font-bold text-5xl text-[var(--color-text)]">Work</a></li>
+            <li><a href="{{ route('about') }}" @click="open=false" class="font-heading font-bold text-5xl text-[var(--color-text)]">About</a></li>
+            <li><a href="{{ route('blog') }}" @click="open=false" class="font-heading font-bold text-5xl text-[var(--color-text)]">Blog</a></li>
             <li><a href="{{ route('contact') }}" @click="open=false" class="font-heading font-bold text-5xl text-[var(--color-accent)]">Contact</a></li>
         </ul>
     </div>
