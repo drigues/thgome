@@ -1,7 +1,7 @@
 <x-app-layout :metaTitle="$project->meta_title ?? $project->title" :metaDescription="$project->meta_description ?? $project->excerpt">
 
 {{-- HERO --}}
-<section class="relative min-h-[80vh] flex flex-col justify-end pb-20 overflow-hidden">
+<section class="relative min-h-[80vh] flex flex-col justify-end pt-24 md:pt-32 pb-20 overflow-hidden">
     @if($project->getFirstMediaUrl('cover'))
     <!-- div class="absolute inset-0">
         <img src="{{ $project->getFirstMediaUrl('cover') }}" alt="{{ $project->title }}"
@@ -15,7 +15,7 @@
             {{ $project->category->name }}
         </span>
         @endif
-        <h1 class="font-heading font-extrabold text-5xl md:text-7xl mt-4 mb-6 leading-none" data-split>
+        <h1 class="font-heading font-extrabold leading-[1.0] mb-6 mt-4 text-[clamp(2rem,5.5vw,90px)]" data-split>
             {{ $project->title }}
         </h1>
         @if($project->excerpt)

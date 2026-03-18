@@ -1,7 +1,7 @@
 <x-app-layout :metaTitle="'About'">
 
 {{-- HERO --}}
-<section class="pt-40 pb-20">
+<section class="pt-24 md:pt-40 pb-20">
     <div class="container mx-auto px-6">
         <p class="text-[var(--color-accent)] font-mono text-xs tracking-[0.25em] uppercase mb-8" data-animate>About</p>
         <h1 class="font-heading font-extrabold leading-none text-[clamp(48px,9vw,140px)]" data-split>Designer.<br>Builder.<br>Systems thinker.</h1>

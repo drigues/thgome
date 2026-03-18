@@ -2,7 +2,7 @@
 
 {{-- HERO --}}
 <section class="relative min-h-screen flex flex-col justify-end pb-24 overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="container mx-auto px-6 relative z-10 pt-20">
         <!--p class="font-mono tracking-[0.25em] uppercase mb-8 opacity-0"
            style="color: var(--color-neon); background: #111; display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem;"
            data-hero-tag>

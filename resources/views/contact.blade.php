@@ -1,6 +1,6 @@
 <x-app-layout :metaTitle="'Contact'">
 
-<section class="pt-40 pb-32">
+<section class="pt-24 md:pt-40 pb-32">
     <div class="container mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-20">
             {{-- Left: Info --}}
