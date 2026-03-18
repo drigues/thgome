@@ -15,13 +15,14 @@ class SiteMedia extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('file')->singleFile();
+        $this->addMediaCollection('thumb')->singleFile();
     }
 
-    public static function getUrl(string $key): ?string
+    public static function getUrl(string $key, string $collection = 'file'): ?string
     {
         $record = static::where('key', $key)->first();
 
-        return $record?->getFirstMediaUrl('file') ?: null;
+        return $record?->getFirstMediaUrl($collection) ?: null;
     }
 
     public static function findOrCreate(string $key, string $label = ''): static

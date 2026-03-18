@@ -40,7 +40,7 @@
 {{-- INTRO VIDEO --}}
 @php
     $introVideoUrl = \App\Models\SiteMedia::getUrl('intro_video');
-    $introVideoThumb = \App\Models\SiteMedia::getUrl('intro_video_thumb');
+    $introVideoThumb = \App\Models\SiteMedia::getUrl('intro_video', 'thumb');
 @endphp
 @if($introVideoUrl)
 <section class="relative overflow-hidden">
@@ -58,7 +58,7 @@
             </div>
 
             {{-- Player --}}
-            <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl max-w-5xl"
+            <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto"
                  x-data="{ playing: false }" data-animate>
 
                 {{-- Thumbnail overlay shown before play --}}

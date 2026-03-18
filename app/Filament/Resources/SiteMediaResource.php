@@ -33,13 +33,22 @@ class SiteMediaResource extends Resource
             Section::make()->schema([
                 TextInput::make('key')->disabled()->label('Identificador'),
                 TextInput::make('label')->label('Descrição'),
+            ]),
+            Section::make('Ficheiros')->schema([
                 SpatieMediaLibraryFileUpload::make('file')
                     ->collection('file')
-                    ->acceptedFileTypes(['video/mp4', 'video/webm', 'video/ogg', 'image/jpeg', 'image/png', 'image/webp'])
+                    ->acceptedFileTypes(['video/mp4', 'video/webm', 'video/ogg'])
                     ->disk('public')
                     ->visibility('public')
-                    ->label('Ficheiro')
-                    ->helperText('Vídeo (MP4, WebM) ou imagem. Tamanho máximo recomendado: 50MB.'),
+                    ->label('Vídeo')
+                    ->helperText('MP4 ou WebM. Máximo recomendado: 50MB.'),
+                SpatieMediaLibraryFileUpload::make('thumb')
+                    ->collection('thumb')
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                    ->disk('public')
+                    ->visibility('public')
+                    ->label('Thumbnail (imagem de capa)')
+                    ->helperText('Imagem exibida antes do vídeo ser reproduzido. JPG, PNG ou WebP.'),
             ]),
         ]);
     }
