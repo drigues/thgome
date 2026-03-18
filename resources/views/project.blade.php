@@ -95,7 +95,6 @@
 @if($gallery->count())
 <section class="py-16 bg-[var(--color-bg-alt)]">
     <div class="container mx-auto px-6">
-        <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-8">Gallery</p>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-4" x-data="{ isOpen: false, currentImage: '' }">
             @foreach($gallery as $i => $media)
             <div class="{{ $i === 0 ? 'col-span-2 row-span-2' : '' }} overflow-hidden rounded-xl cursor-pointer aspect-square"
@@ -123,7 +122,7 @@
 
 {{-- Description Part 2 --}}
 @if($project->description_two)
-<section class="py-20">
+<section class="py-10">
     <div class="container mx-auto px-6">
         <div class="max-w-6xl mx-auto">
             <div class="prose-portfolio min-w-0 lg:max-w-[calc(100%-316px)]">
@@ -138,7 +137,6 @@
 @php $videos = $project->getMedia('videos'); @endphp
 @if($project->video_embeds || $videos->count())
 <section class="py-16 container mx-auto px-6">
-    <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-8">Videos</p>
     <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
         @if($project->video_embeds)
             @foreach($project->video_embeds as $embed)

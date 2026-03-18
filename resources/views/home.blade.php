@@ -85,10 +85,6 @@
                             </svg>
                         </div>
                     </div>
-
-                    <p class="absolute bottom-6 left-6 font-heading font-semibold text-white/70 text-xs uppercase tracking-widest">
-                        Play intro
-                    </p>
                 </div>
 
                 {{-- Video --}}
