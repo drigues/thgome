@@ -54,7 +54,7 @@
     <ul class="flex flex-col gap-8">
         <li><a href="{{ route('projects') }}" onclick="closeMobileMenu()" class="font-heading font-bold text-5xl text-[var(--color-text)]">Work</a></li>
         <li><a href="{{ route('about') }}" onclick="closeMobileMenu()" class="font-heading font-bold text-5xl text-[var(--color-text)]">About</a></li>
-        <li><a href="{{ route('blog') }}" onclick="closeMobileMenu()" class="font-heading font-bold text-5xl text-[var(--color-text)]">Blog</a></li>
+        <!-- li><a href="{{ route('blog') }}" onclick="closeMobileMenu()" class="font-heading font-bold text-5xl text-[var(--color-text)]">Blog</a></li -->
         <li><a href="{{ route('contact') }}" onclick="closeMobileMenu()" class="font-heading font-bold text-5xl text-[var(--color-accent)]">Contact</a></li>
     </ul>
 </div>

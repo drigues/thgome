@@ -1,7 +1,7 @@
 <x-app-layout :metaTitle="$project->meta_title ?? $project->title" :metaDescription="$project->meta_description ?? $project->excerpt">
 
 {{-- HERO --}}
-<section class="relative min-h-[80vh] flex flex-col justify-end pt-24 md:pt-32 pb-20 overflow-hidden">
+<section class="pt-20 md:pt-32 pb-6 md:pb-20">
     @if($project->getFirstMediaUrl('cover'))
     <!-- div class="absolute inset-0">
         <img src="{{ $project->getFirstMediaUrl('cover') }}" alt="{{ $project->title }}"
@@ -47,11 +47,12 @@
     </div>
 </section>
 
-{{-- Cover image full-bleed --}}
+{{-- Cover image --}}
 @if($project->getFirstMediaUrl('cover'))
-<div class="mb-20" data-animate>
-    <img src="{{ $project->getFirstMediaUrl('cover') }}" alt="{{ $project->title }}"
-         class="w-full aspect-video object-cover" id="project-cover-full">
+<div class="w-full mt-6 md:mt-0 md:aspect-video overflow-hidden" data-animate>
+    <img src="{{ $project->getFirstMediaUrl('cover') }}"
+         alt="{{ $project->title }}"
+         class="w-full h-auto md:h-full md:object-cover">
 </div>
 @endif
 
