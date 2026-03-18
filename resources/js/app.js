@@ -34,22 +34,44 @@ document.querySelectorAll('a[href]').forEach(a => {
     }
 });
 
+window.closeMobileMenu = function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.add('hidden');
+    menu.classList.remove('flex');
+    document.body.style.overflow = '';
+}
+
+window.addEventListener('menu-toggle', (e) => {
+    const menu = document.getElementById('mobile-menu');
+    if (e.detail.open) {
+        menu.classList.remove('hidden');
+        menu.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    } else {
+        closeMobileMenu();
+    }
+});
+
 window.toggleTheme = function() {
     const html = document.documentElement;
     const isDark = html.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    document.getElementById('theme-icon-dark').classList.toggle('hidden', isDark);
-    document.getElementById('theme-icon-light').classList.toggle('hidden', !isDark);
+    ['theme-icon-dark','theme-icon-dark-mobile'].forEach(id => {
+        document.getElementById(id)?.classList.toggle('hidden', isDark);
+    });
+    ['theme-icon-light','theme-icon-light-mobile'].forEach(id => {
+        document.getElementById(id)?.classList.toggle('hidden', !isDark);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const isDark = document.documentElement.classList.contains('dark');
-    const iconDark = document.getElementById('theme-icon-dark');
-    const iconLight = document.getElementById('theme-icon-light');
-    if (iconDark && iconLight) {
-        iconDark.classList.toggle('hidden', isDark);
-        iconLight.classList.toggle('hidden', !isDark);
-    }
+    ['theme-icon-dark','theme-icon-dark-mobile'].forEach(id => {
+        document.getElementById(id)?.classList.toggle('hidden', isDark);
+    });
+    ['theme-icon-light','theme-icon-light-mobile'].forEach(id => {
+        document.getElementById(id)?.classList.toggle('hidden', !isDark);
+    });
 });
 
 Alpine.start();
