@@ -59,6 +59,10 @@ class Settings extends Page implements HasForms
                     TextInput::make('hero_title')->label('Título Hero'),
                     TextInput::make('hero_subtitle')->label('Subtítulo Hero'),
                     TextInput::make('hero_cta_text')->label('Texto do CTA'),
+                    TextInput::make('intro_video_label')
+                        ->label('Intro Video — Label')
+                        ->helperText('Texto do badge acima do vídeo. Ex: Nice to meet you')
+                        ->default('Nice to meet you'),
                 ]),
                 Tabs\Tab::make('Sobre')->schema([
                     TextInput::make('about_title')->label('Título da Página Sobre'),

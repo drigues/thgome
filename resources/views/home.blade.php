@@ -37,6 +37,78 @@
     </div>
 </section>
 
+{{-- INTRO VIDEO --}}
+@php
+    $introVideoUrl = \App\Models\SiteMedia::getUrl('intro_video');
+    $introVideoThumb = \App\Models\SiteMedia::getUrl('intro_video_thumb');
+@endphp
+@if($introVideoUrl)
+<section class="relative overflow-hidden">
+    <div class="bg-[var(--color-bg-card)] border-y border-[var(--color-border)]">
+        <div class="container mx-auto px-6 py-16 lg:py-24">
+
+            {{-- Header --}}
+            <div class="mb-12" data-animate>
+                <p class="text-xs font-mono uppercase tracking-[0.25em] mb-4 text-[var(--color-accent)]">
+                    Hi, I'm Thiago
+                </p>
+                <h2 class="font-heading font-bold text-4xl md:text-5xl text-[var(--color-text)]">
+                    Nice to meet you.
+                </h2>
+            </div>
+
+            {{-- Player --}}
+            <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl max-w-5xl"
+                 x-data="{ playing: false }" data-animate>
+
+                {{-- Thumbnail overlay shown before play --}}
+                <div x-show="!playing"
+                     class="absolute inset-0 flex items-center justify-center cursor-pointer group z-10"
+                     @click="playing = true">
+
+                    {{-- Background: thumbnail or dark fallback --}}
+                    @if($introVideoThumb)
+                    <img src="{{ $introVideoThumb }}"
+                         alt="Video thumbnail"
+                         class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/30"></div>
+                    @else
+                    <div class="absolute inset-0 bg-[var(--color-bg-alt)]"></div>
+                    @endif
+
+                    {{-- Play button --}}
+                    <div class="relative z-10 flex flex-col items-center gap-4">
+                        <div class="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-2xl"
+                             style="background: var(--color-neon)">
+                            <svg class="w-7 h-7 ml-1" viewBox="0 0 24 24" fill="#111">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <p class="absolute bottom-6 left-6 font-heading font-semibold text-white/70 text-xs uppercase tracking-widest">
+                        Play intro
+                    </p>
+                </div>
+
+                {{-- Video --}}
+                <template x-if="playing">
+                    <video
+                        src="{{ $introVideoUrl }}"
+                        class="absolute inset-0 w-full h-full object-cover"
+                        controls
+                        autoplay
+                        playsinline
+                        @if($introVideoThumb) poster="{{ $introVideoThumb }}" @endif>
+                    </video>
+                </template>
+            </div>
+
+        </div>
+    </div>
+</section>
+@endif
+
 {{-- SELECTED WORK --}}
 <section class="py-32 relative">
     <div class="container mx-auto px-6">
