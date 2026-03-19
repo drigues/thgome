@@ -53,7 +53,7 @@
                     Hi, I'm Thiago
                 </p>
                 <h2 class="font-heading font-bold text-4xl md:text-5xl text-[var(--color-text)]">
-                    Nice to meet you.
+                    - Nice to meet you!
                 </h2>
             </div>
 
@@ -184,7 +184,7 @@
                 </div>
                 <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-6" data-animate>About</p>
                 <h2 class="font-heading font-bold text-4xl md:text-5xl mb-8 leading-none" data-animate>
-                    {{ \App\Models\Setting::get('about_title', 'Designer. Builder. Systems thinker.') }}
+                    {!! \App\Models\Setting::get('about_title', 'Designer. Builder.<br>Systems thinker.') !!}
                 </h2>
                 <p class="text-[var(--color-text-muted)] text-lg leading-relaxed mb-10 line-clamp-4" data-animate>
                     I'm Thiago Rodrigues — a Product Designer with 10+ years of experience turning complex challenges into clear, purposeful digital products.
@@ -204,7 +204,7 @@
             <div class="lg:col-span-2" data-animate>
                 <div class="border-l-4 border-[var(--color-accent)] p-8 bg-[var(--color-bg-card)] rounded-r-2xl">
                     <p class="font-heading text-xl font-medium leading-relaxed italic text-[var(--color-text)] mb-6">
-                        "I design what's buildable, scalable, and measurable — because I've shipped the code too."
+                        "I work to find the balance between user needs and business goals — where every design decision truly matters."
                     </p>
                     <p class="text-[var(--color-text-muted)] text-sm font-medium">— Thiago Rodrigues</p>
                 </div>
@@ -282,7 +282,7 @@
 @endif
 
 {{-- CTA FINAL --}}
-<section class="py-40 text-center overflow-hidden">
+<section class="py-20 text-center overflow-hidden">
     <div class="container mx-auto px-6">
         <h2 class="font-heading font-extrabold leading-none mb-6 text-[clamp(48px,8vw,130px)]" data-split>
             Let's build<br>something.
