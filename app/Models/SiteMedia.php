@@ -14,8 +14,15 @@ class SiteMedia extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('file')->singleFile();
-        $this->addMediaCollection('thumb')->singleFile();
+        $this->addMediaCollection('file')
+            ->singleFile()
+            ->useDisk('public')
+            ->acceptsMimeTypes(['video/mp4', 'video/webm', 'video/ogg', 'image/jpeg', 'image/png', 'image/webp'])
+            ->withResponsiveImages();
+
+        $this->addMediaCollection('thumb')
+            ->singleFile()
+            ->useDisk('public');
     }
 
     public static function getUrl(string $key, string $collection = 'file'): ?string
