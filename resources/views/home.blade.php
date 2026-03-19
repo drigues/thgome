@@ -284,7 +284,7 @@
 {{-- CTA FINAL --}}
 <section class="py-20 text-center overflow-hidden">
     <div class="container mx-auto px-6">
-        <h2 class="font-heading font-extrabold leading-none mb-6 text-[clamp(48px,8vw,130px)]" data-split>
+        <h2 class="font-heading font-extrabold leading-none mb-6 text-[clamp(2.2rem,8vw,130px)]" data-split>
             Let's build<br>something.
         </h2>
         <p class="text-[var(--color-text-muted)] text-xl mb-12" data-animate>
