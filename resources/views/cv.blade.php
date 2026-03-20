@@ -16,16 +16,16 @@
             color: var(--color-text, #111111);
             max-width: 860px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 2rem 2rem;
         }
 
-         .cv-header { margin-bottom: 2rem; /*border-bottom: 2px solid var(--color-accent, #111); padding-bottom: 1.5rem; */ } 
-        .cv-name { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; line-height: 1; margin: 0 0 0.25rem; }
-        .cv-role { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 600; color: var(--color-accent, #111); text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 0.75rem; }
+        .cv-header { margin-bottom: 1.2rem; /*border-bottom: 2px solid var(--color-accent, #111); padding-bottom: 1.5rem; */ } 
+        .cv-name { font-family: 'Syne', sans-serif; display:inline-flex; padding-right:3rem; font-size: 2.5rem; font-weight: 800; line-height: 1; margin: 0 0 0.5rem; }
+        .cv-role { font-family: 'Syne', sans-serif; font-size: 1rem; display:inline-flex; font-weight: 600; color: var(--color-accent, #111); text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 0.75rem; }
         .cv-contacts { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--color-text-muted, #555); }
-        .cv-contacts a { color: inherit; text-decoration: none; }
+        .cv-contacts a { color: inherit; text-decoration:underline; }
 
-        .cv-section { margin-bottom: 1.5rem; }
+        .cv-section { margin-bottom: 1rem; }
         .cv-section-title {
             font-family: 'Syne', sans-serif;
             font-size: 0.75rem;
@@ -38,29 +38,29 @@
             margin-top: 0.875rem;
         }
 
-        .cv-profile { font-size: 0.85rem; line-height: 1.7; color: var(--color-text-muted, #555); }
+        .cv-profile { font-size: 0.85rem; line-height: 1.7; color: var(--color-text-muted, #111); }
 
         .cv-skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
         .cv-skill-block { font-size: 0.78rem; line-height: 1.6; }
-        .cv-skill-label { font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted, #555); margin-bottom: 0.2rem; }
+        .cv-skill-label { font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-muted, #111); margin-bottom: 0.2rem; }
 
-        .cv-job { margin-bottom: 1.25rem; }
+        .cv-job { margin-bottom: 1rem; }
         .cv-job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem; }
         .cv-job-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; }
-        .cv-job-dates { font-size: 0.75rem; color: var(--color-text-muted, #555); font-family: 'Inter', monospace; white-space: nowrap; }
-        .cv-job-company { font-size: 0.78rem; color: var(--color-text-muted, #555); margin-bottom: 0.4rem; }
+        .cv-job-dates { font-size: 0.75rem; color: var(--color-text-muted, #111); font-family: 'Inter', monospace; white-space: nowrap; }
+        .cv-job-company { font-size: 0.78rem; font-weight:600; color: var(--color-text-muted, #111); margin-bottom: 0.4rem; }
         .cv-job ul { margin: 0; padding-left: 1rem; }
-        .cv-job ul li { font-size: 0.8rem; line-height: 1.6; color: var(--color-text-muted, #555); margin-bottom: 0.15rem; }
+        .cv-job ul li { font-size: 0.8rem; line-height: 1.6; color: var(--color-text-muted, #111); margin-bottom: 0.15rem; list-style-type: disc; }
 
         .cv-edu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
         .cv-edu-degree { font-weight: 600; font-size: 0.83rem; }
-        .cv-edu-school { font-size: 0.78rem; color: var(--color-text-muted, #555); }
-        .cv-edu-year { font-size: 0.75rem; color: var(--color-text-muted, #555); white-space: nowrap; }
+        .cv-edu-school { font-size: 0.78rem; color: var(--color-text-muted, #111); }
+        .cv-edu-year { font-size: 0.75rem; color: var(--color-text-muted, #111); white-space: nowrap; }
 
         .cv-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 
         .cv-lang-item { display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.35rem; }
-        .cv-lang-level { color: var(--color-text-muted, #555); font-size: 0.75rem; }
+        .cv-lang-level { color: var(--color-text-muted, #111); font-size: 0.75rem; }
 
         .cv-print-btn {
             position: fixed; bottom: 2rem; right: 2rem;
@@ -127,7 +127,7 @@
     <div class="cv-contacts">
         <a href="mailto:thgo.me@outlook.com">thgo.me@outlook.com</a>
         <span>+351 939 341 853</span>
-        <a href="https://thgo.me" target="_blank">Portfolio: www.thgo.me</a>
+        <span>Portfolio:<a href="https://thgo.me" target="_blank">www.thgo.me</a></span>
         <a href="https://linkedin.com/in/thgorodrigues" target="_blank">linkedin.com/in/thgorodrigues</a>
     </div>
 </header>
@@ -156,7 +156,7 @@
         </div>
         <div class="cv-skill-block" style="margin-top:0.5rem">
             <div class="cv-skill-label">AI Tools</div>
-            Figma Make, v0.dev, Claude Code, Lovable, Copilot, Dovetail AI, NotebookLM, Figma AI
+            Claude Code, Lovable, Copilot, v0, Figma Make, Gemini
         </div>
     </div>
 </section>
@@ -172,7 +172,8 @@
         </div>
         <div class="cv-job-company">Thr33 (SaaS Holding) · Portugal</div>
         <ul>
-            <li>- Building two live products: Navego (trust marketplace for 300K+ Brazilian immigrants in Portugal) and Granber (marketplace for discount vouchers from restaurants and )</li>
+            <li>Founded and led end-to-end product design and development of Navego — a live SaaS marketplace connecting Brazilian immigrants in Portugal with verified service providers, built solo across UX, frontend, backend, and SEO.</li>
+            <li>Designed and shipped a multi-tenant freemium platform (Laravel 12, Filament, Tailwind CSS) with a role-based permission system, structured SEO architecture, and a modular content pipeline — from zero to production.</li>
         </ul>
     </div>
 
@@ -183,9 +184,9 @@
         </div>
         <div class="cv-job-company">McKesson (USA remote) · via Randstad Digital</div>
         <ul>
-            <li>- Led end-to-end design across discovery, definition, and delivery for an enterprise healthcare distribution platform used by tens of thousands of professionals</li>
-            <li>- Conducted user interviews, facilitated cross-functional workshops, and mapped complex workflows to identify friction points and growth opportunities</li>
-            <li>- Designed high-fidelity interfaces within a large-scale Design System across multiple product squads, introducing design review rituals and aligning decisions with measurable OKRs</li>
+            <li>Led end-to-end design across discovery, definition, and delivery for an enterprise healthcare distribution platform used by tens of thousands of professionals</li>
+            <li>Conducted user interviews, facilitated cross-functional workshops, and mapped complex workflows to identify friction points and growth opportunities</li>
+            <li>Designed high-fidelity interfaces within a large-scale Design System across multiple product squads, introducing design review rituals and aligning decisions with measurable OKRs</li>
         </ul>
     </div>
 
