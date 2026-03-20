@@ -40,8 +40,9 @@ class SiteMediaResource extends Resource
                     ->acceptedFileTypes(['video/mp4', 'video/webm', 'video/ogg'])
                     ->disk('public')
                     ->visibility('public')
+                    ->maxSize(102400)
                     ->label('Vídeo')
-                    ->helperText('MP4 ou WebM. Máximo recomendado: 50MB.'),
+                    ->helperText('MP4 ou WebM. Máximo: 100MB.'),
                 SpatieMediaLibraryFileUpload::make('thumb')
                     ->collection('thumb')
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
