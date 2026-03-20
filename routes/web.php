@@ -13,4 +13,5 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
     ->middleware('throttle:5,1');
 Route::get('/blog', [PortfolioController::class, 'blog'])->name('blog');
 Route::get('/blog/{post:slug}', [PortfolioController::class, 'post'])->name('post');
+Route::get('/cv', [PortfolioController::class, 'cv'])->name('cv');
 Route::get('/sitemap.xml', [PortfolioController::class, 'sitemap']);

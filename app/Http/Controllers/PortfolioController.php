@@ -6,9 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\Service;
-use App\Models\Setting;
 use App\Models\Testimonial;
-use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
 {
@@ -66,6 +64,11 @@ class PortfolioController extends Controller
         abort_if(! $post->is_published, 404);
 
         return view('post', ['post' => $post]);
+    }
+
+    public function cv()
+    {
+        return view('cv');
     }
 
     public function sitemap()
