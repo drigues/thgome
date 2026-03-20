@@ -19,7 +19,7 @@
             padding: 3rem 2rem;
         }
 
-        .cv-header { margin-bottom: 2rem; border-bottom: 2px solid var(--color-accent, #111); padding-bottom: 1.5rem; }
+         .cv-header { margin-bottom: 2rem; /*border-bottom: 2px solid var(--color-accent, #111); padding-bottom: 1.5rem; */ } 
         .cv-name { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; line-height: 1; margin: 0 0 0.25rem; }
         .cv-role { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 600; color: var(--color-accent, #111); text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 0.75rem; }
         .cv-contacts { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--color-text-muted, #555); }
@@ -28,14 +28,14 @@
         .cv-section { margin-bottom: 1.5rem; }
         .cv-section-title {
             font-family: 'Syne', sans-serif;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: var(--color-accent, #111);
-            border-bottom: 1px solid currentColor;
-            padding-bottom: 0.25rem;
-            margin-bottom: 0.875rem;
+            border-top: 1px solid currentColor;
+            padding: 0.25rem 0 0.5rem;
+            margin-top: 0.875rem;
         }
 
         .cv-profile { font-size: 0.85rem; line-height: 1.7; color: var(--color-text-muted, #555); }
@@ -127,7 +127,7 @@
     <div class="cv-contacts">
         <a href="mailto:thgo.me@outlook.com">thgo.me@outlook.com</a>
         <span>+351 939 341 853</span>
-        <a href="https://thgo.me" target="_blank">thgo.me</a>
+        <a href="https://thgo.me" target="_blank">Portfolio: www.thgo.me</a>
         <a href="https://linkedin.com/in/thgorodrigues" target="_blank">linkedin.com/in/thgorodrigues</a>
     </div>
 </header>
@@ -167,14 +167,25 @@
 
     <div class="cv-job">
         <div class="cv-job-header">
+            <span class="cv-job-title">Principal Product Designer & Builder</span>
+            <span class="cv-job-dates">Ago 2025 – Present</span>
+        </div>
+        <div class="cv-job-company">Thr33 (SaaS Holding) · Portugal</div>
+        <ul>
+            <li>- Building two live products: Navego (trust marketplace for 300K+ Brazilian immigrants in Portugal) and Granber (marketplace for discount vouchers from restaurants and )</li>
+        </ul>
+    </div>
+
+    <div class="cv-job">
+        <div class="cv-job-header">
             <span class="cv-job-title">User Experience Designer</span>
             <span class="cv-job-dates">May 2023 – Jul 2025</span>
         </div>
         <div class="cv-job-company">McKesson (USA remote) · via Randstad Digital</div>
         <ul>
-            <li>Led end-to-end design across discovery, definition, and delivery for an enterprise healthcare distribution platform used by tens of thousands of professionals</li>
-            <li>Conducted user interviews, facilitated cross-functional workshops, and mapped complex workflows to identify friction points and growth opportunities</li>
-            <li>Designed high-fidelity interfaces within a large-scale Design System across multiple product squads, introducing design review rituals and aligning decisions with measurable OKRs</li>
+            <li>- Led end-to-end design across discovery, definition, and delivery for an enterprise healthcare distribution platform used by tens of thousands of professionals</li>
+            <li>- Conducted user interviews, facilitated cross-functional workshops, and mapped complex workflows to identify friction points and growth opportunities</li>
+            <li>- Designed high-fidelity interfaces within a large-scale Design System across multiple product squads, introducing design review rituals and aligning decisions with measurable OKRs</li>
         </ul>
     </div>
 
@@ -202,7 +213,7 @@
         </ul>
     </div>
 
-    <div class="cv-job">
+    <!-- div class="cv-job">
         <div class="cv-job-header">
             <span class="cv-job-title">UX/UI Designer</span>
             <span class="cv-job-dates">Dec 2015 – Mar 2019</span>
@@ -211,18 +222,9 @@
         <ul>
             <li>Designed financial websites, online banking, and mobile banking experiences end-to-end; delivered 200+ CSS components, a full UI Design System, and measurable CTR improvements</li>
         </ul>
-    </div>
+    </div -->
 
-    <div class="cv-job">
-        <div class="cv-job-header">
-            <span class="cv-job-title">Founder & Director of Product</span>
-            <span class="cv-job-dates">2024 – Present</span>
-        </div>
-        <div class="cv-job-company">Thr33 (SaaS Holding) · Portugal</div>
-        <ul>
-            <li>Building two live products: Navego (trust marketplace for 300K+ Brazilian immigrants in Portugal) and 99web (web agency platform with AI-native CMS using Gemini + Claude)</li>
-        </ul>
-    </div>
+    
 </section>
 
 {{-- EDUCATION + LANGUAGES --}}
@@ -255,10 +257,6 @@
         <div>
             <h2 class="cv-section-title">Languages</h2>
             <div class="cv-lang-item">
-                <span>Portuguese</span>
-                <span class="cv-lang-level">Native</span>
-            </div>
-            <div class="cv-lang-item">
                 <span>English</span>
                 <span class="cv-lang-level">C1 — Full Professional</span>
             </div>
@@ -266,14 +264,18 @@
                 <span>Spanish</span>
                 <span class="cv-lang-level">B1 — Working Proficiency</span>
             </div>
+            <div class="cv-lang-item">
+                <span>Portuguese</span>
+                <span class="cv-lang-level">Native</span>
+            </div>
 
-            <h2 class="cv-section-title" style="margin-top:1rem">Recognition</h2>
+            <!-- h2 class="cv-section-title" style="margin-top:1rem">Recognition</h2>
             <div style="font-size:0.78rem; line-height:1.6; color: var(--color-text-muted, #555)">
                 <div>🥇 1st Place — Startup Weekend Limerick</div>
                 <div style="font-size:0.72rem">Google for Entrepreneurs · Ireland · 2015</div>
                 <div style="margin-top:0.4rem">🥈 2nd Place — Startup Weekend Utrecht</div>
                 <div style="font-size:0.72rem">Google for Entrepreneurs · Netherlands · 2017</div>
-            </div>
+            </div -->
         </div>
     </div>
 </section>
