@@ -147,6 +147,20 @@ class ProjectResource extends Resource
                 ]),
 
                 Tabs\Tab::make('Média')->schema([
+                    Section::make('Thumbnail do card')->schema([
+                        SpatieMediaLibraryFileUpload::make('thumbnail')
+                            ->collection('thumbnail')
+                            ->image()
+                            ->imageResizeMode('cover')
+                            ->imageResizeTargetWidth(1280)
+                            ->imageResizeTargetHeight(720)
+                            ->disk('public')
+                            ->visibility('public')
+                            ->maxSize(10240)
+                            ->label('Thumbnail (card da homepage e Work)')
+                            ->helperText('Imagem 16:9 dedicada aos cards. Se não carregar, usa a capa como fallback. Recomendado: 1280×720px.'),
+                    ]),
+
                     Section::make('Capa')->schema([
                         SpatieMediaLibraryFileUpload::make('cover')
                             ->collection('cover')

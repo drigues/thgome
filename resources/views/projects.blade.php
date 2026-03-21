@@ -48,7 +48,7 @@
                    x-transition:leave-end="opacity-0 scale-95"
                    data-animate>
                     <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[var(--color-bg-card)] mb-4">
-                        <img src="{{ $project->cover_url }}"
+                        <img src="{{ $project->thumbnail_url }}"
                              alt="{{ $project->title }}"
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                              loading="lazy">

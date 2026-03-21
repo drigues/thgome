@@ -119,41 +119,60 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach($featuredProjects as $project)
+        <div class="divide-y divide-[var(--color-border)]">
+            @foreach($featuredProjects as $i => $project)
             <a href="{{ route('project', $project) }}"
-               class="group block" data-animate>
-                <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[var(--color-bg-card)] mb-4">
-                    <img src="{{ $project->cover_url }}"
-                         alt="{{ $project->title }}"
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                         loading="lazy">
-                    <div class="absolute inset-0 bg-[var(--color-bg)]/0 group-hover:bg-[var(--color-bg)]/50 transition-all duration-300 flex items-center justify-center">
-                        <span class="text-[var(--color-text)] font-heading font-semibold text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 border border-[var(--color-border)] px-5 py-2.5 rounded-full bg-[var(--color-bg)]/80 backdrop-blur-sm">
-                            View case →
-                        </span>
-                    </div>
+               class="case-row group flex items-center gap-6 py-8 transition-all duration-300"
+               data-animate>
+
+                {{-- Number --}}
+                <span class="font-mono text-xs w-8 shrink-0 hidden sm:block"
+                      style="color: var(--color-neon); background: #111; padding: 2px 5px; border-radius: 3px;">
+                    {{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}
+                </span>
+
+                {{-- Title --}}
+                <h3 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl flex-1 leading-none
+                            group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                    {{ $project->title }}
+                </h3>
+
+                {{-- Meta --}}
+                <div class="hidden lg:flex items-center gap-3 shrink-0 text-[var(--color-text-muted)] text-sm">
                     @if($project->category)
-                    <div class="absolute top-4 left-4">
-                        <span class="text-xs font-medium px-3 py-1 rounded-full bg-[var(--color-bg)]/80 backdrop-blur-sm text-[var(--color-text)] border border-[var(--color-border)]">
-                            {{ $project->category->name }}
-                        </span>
-                    </div>
+                    <span>{{ $project->category->name }}</span>
+                    @endif
+                    @if($project->client)
+                    <span class="text-[var(--color-border)]">·</span>
+                    <span>{{ $project->client }}</span>
+                    @endif
+                    @if($project->year)
+                    <span class="text-[var(--color-border)]">·</span>
+                    <span>{{ $project->year }}</span>
                     @endif
                 </div>
-                <div>
-                    <h3 class="font-heading font-bold text-xl mb-1 group-hover:text-[var(--color-accent)] transition-colors duration-300">
-                        {{ $project->title }}
-                    </h3>
-                    <p class="text-[var(--color-text-muted)] text-sm">
-                        {{ implode(' · ', array_filter([$project->client, $project->year])) }}
-                    </p>
+
+                {{-- Arrow --}}
+                <span class="text-[var(--color-accent)] text-lg opacity-0 group-hover:opacity-100
+                             transition-all duration-300 -translate-x-2 group-hover:translate-x-0 shrink-0">
+                    →
+                </span>
+
+                {{-- Thumbnail — fixed right, B&W default, color on row hover --}}
+                <div class="shrink-0 w-36 xl:w-52 overflow-hidden rounded-xl hidden md:block">
+                    <img src="{{ $project->thumbnail_url }}"
+                         alt="{{ $project->title }}"
+                         class="w-full aspect-video object-cover
+                                grayscale group-hover:grayscale-0
+                                scale-100 group-hover:scale-[1.04]
+                                transition-all duration-500 ease-out">
                 </div>
+
             </a>
             @endforeach
         </div>
 
-        <div class="mt-8 md:hidden text-center">
+        <div class="mt-6 md:hidden text-center">
             <a href="{{ route('projects') }}" class="text-[var(--color-accent)] text-sm font-medium">All work →</a>
         </div>
     </div>

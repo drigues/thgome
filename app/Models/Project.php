@@ -41,6 +41,7 @@ class Project extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('cover')->singleFile();
+        $this->addMediaCollection('thumbnail')->singleFile();
         $this->addMediaCollection('pitch')->singleFile();
         $this->addMediaCollection('gallery');
         $this->addMediaCollection('image_block');
@@ -50,6 +51,13 @@ class Project extends Model implements HasMedia
     public function getCoverUrlAttribute(): string
     {
         return $this->getFirstMediaUrl('cover') ?: asset('images/placeholder.jpg');
+    }
+
+    public function getThumbnailUrlAttribute(): string
+    {
+        return $this->getFirstMediaUrl('thumbnail')
+            ?: $this->getFirstMediaUrl('cover')
+            ?: asset('images/placeholder.jpg');
     }
 
     public function scopeActive($q)
