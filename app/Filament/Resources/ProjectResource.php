@@ -103,7 +103,11 @@ class ProjectResource extends Resource
                     RichEditor::make('description')
                         ->label('Descrição — Parte 1')
                         ->nullable()
+                        ->fileAttachmentsDisk('public')
+                        ->fileAttachmentsDirectory('projects/inline')
+                        ->fileAttachmentsVisibility('public')
                         ->toolbarButtons([
+                            'attachFiles',
                             'bold', 'italic', 'underline', 'strike',
                             'h2', 'h3', 'bulletList', 'orderedList',
                             'link', 'blockquote', 'codeBlock',
@@ -112,12 +116,28 @@ class ProjectResource extends Resource
                     RichEditor::make('description_two')
                         ->label('Descrição — Parte 2')
                         ->nullable()
-                        ->helperText('Exibido após a galeria de fotos no site público.')
+                        ->fileAttachmentsDisk('public')
+                        ->fileAttachmentsDirectory('projects/inline')
+                        ->fileAttachmentsVisibility('public')
+                        ->helperText('Exibido após o bloco de imagens.')
                         ->toolbarButtons([
+                            'attachFiles',
                             'bold', 'italic', 'underline', 'strike',
                             'h2', 'h3', 'bulletList', 'orderedList',
                             'link', 'blockquote', 'codeBlock',
                         ]),
+
+                    Select::make('image_block_layout')
+                        ->label('Layout do bloco de imagens')
+                        ->options([
+                            'none' => 'Sem bloco de imagens',
+                            'full' => 'Imagem a largura total',
+                            'grid-2' => '2 colunas iguais',
+                            'grid-3' => '3 colunas',
+                            'featured' => 'Destaque — 1 grande + resto pequenas',
+                        ])
+                        ->default('grid-2')
+                        ->helperText('Aparece entre a Descrição 1 e a Descrição 2.'),
 
                     Grid::make(3)->schema([
                         Toggle::make('is_featured')->label('Em Destaque')->default(false),
@@ -140,6 +160,17 @@ class ProjectResource extends Resource
                             ->helperText('Dimensão recomendada: 1200x800px'),
                     ]),
 
+                    Section::make('Vídeo de Apresentação do Projecto')->schema([
+                        SpatieMediaLibraryFileUpload::make('pitch')
+                            ->collection('pitch')
+                            ->acceptedFileTypes(['video/mp4', 'video/webm'])
+                            ->disk('public')
+                            ->visibility('public')
+                            ->maxSize(102400)
+                            ->label('Vídeo pitch (opcional)')
+                            ->helperText('MP4 ou WebM. Máximo 100MB. Aparece logo após a imagem capa. Não aparece nada se não fizer upload.'),
+                    ]),
+
                     Section::make('Galeria de Fotos')->schema([
                         SpatieMediaLibraryFileUpload::make('gallery')
                             ->collection('gallery')
@@ -150,6 +181,19 @@ class ProjectResource extends Resource
                             ->visibility('public')
                             ->label('Fotos')
                             ->helperText('Pode adicionar múltiplas fotos e reordená-las'),
+                    ]),
+
+                    Section::make('Imagens do bloco entre textos')->schema([
+                        SpatieMediaLibraryFileUpload::make('image_block')
+                            ->collection('image_block')
+                            ->image()
+                            ->multiple()
+                            ->reorderable()
+                            ->disk('public')
+                            ->visibility('public')
+                            ->maxSize(10240)
+                            ->label('Imagens')
+                            ->helperText('Estas imagens aparecem entre a Descrição 1 e a Descrição 2, com o layout escolhido no tab Geral.'),
                     ]),
 
                     Section::make('Vídeos Ficheiro')->schema([

@@ -14,7 +14,7 @@ class Project extends Model implements HasMedia
     use HasSlug, InteractsWithMedia, SoftDeletes;
 
     protected $fillable = [
-        'title', 'slug', 'excerpt', 'description', 'description_two', 'client', 'url',
+        'title', 'slug', 'excerpt', 'description', 'description_two', 'image_block_layout', 'client', 'url',
         'year', 'category_id', 'is_featured', 'is_active',
         'sort_order', 'meta_title', 'meta_description', 'video_embeds',
     ];
@@ -41,7 +41,9 @@ class Project extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('cover')->singleFile();
+        $this->addMediaCollection('pitch')->singleFile();
         $this->addMediaCollection('gallery');
+        $this->addMediaCollection('image_block');
         $this->addMediaCollection('videos');
     }
 
