@@ -28,7 +28,7 @@
             <span class="text-[var(--color-border)]">/</span>
             <span>5 industries</span>
             <span class="text-[var(--color-border)]">/</span>
-            <span>2× Google Award winner</span>
+            <span>UK, USA, PT, Brazil projects</span>
         </div>
     </div>
     <div class="absolute right-0 top-1/3 w-[50vw] h-[50vw] rounded-full bg-[var(--color-accent)]/4 blur-[100px] pointer-events-none"></div>
@@ -53,7 +53,7 @@
                     Hi, I'm Thiago
                 </p>
                 <h2 class="font-heading font-bold text-4xl md:text-5xl text-[var(--color-text)]">
-                    - Nice to meet you!
+                    Nice to meet you!
                 </h2>
             </div>
 
@@ -113,59 +113,44 @@
             <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-4" data-animate>Selected Work</p>
             <div class="flex items-end justify-between">
                 <h2 class="font-heading font-bold text-4xl md:text-5xl" data-animate>Cases that<br>moved the needle</h2>
-                <a href="{{ route('projects') }}" class="text-[var(--color-accent)] hover:underline text-sm font-medium hidden md:block" data-animate>
-                    All work →
-                </a>
+                <a href="{{ route('projects') }}" class="text-[var(--color-accent)] hover:underline text-sm font-medium hidden md:block" data-animate>All work →</a>
             </div>
         </div>
 
         <div class="divide-y divide-[var(--color-border)]">
             @foreach($featuredProjects as $i => $project)
             <a href="{{ route('project', $project) }}"
-               class="case-row group flex items-center gap-6 py-8 transition-all duration-300"
+               class="group flex items-center gap-6 py-7 w-full"
                data-animate>
 
                 {{-- Number --}}
-                <span class="font-mono text-xs w-8 shrink-0 hidden sm:block"
-                      style="color: var(--color-neon); background: #111; padding: 2px 5px; border-radius: 3px;">
+                <span class="font-mono text-[10px] shrink-0 hidden sm:block"
+                      style="color: var(--color-neon); background: #111; padding: 2px 6px; border-radius: 3px;">
                     {{ str_pad($i + 1, 2, '0', STR_PAD_LEFT) }}
                 </span>
 
                 {{-- Title --}}
-                <h3 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl flex-1 leading-none
-                            group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                <h3 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl flex-1 leading-none group-hover:text-[var(--color-accent)] transition-colors duration-300">
                     {{ $project->title }}
                 </h3>
 
                 {{-- Meta --}}
                 <div class="hidden lg:flex items-center gap-3 shrink-0 text-[var(--color-text-muted)] text-sm">
-                    @if($project->category)
-                    <span>{{ $project->category->name }}</span>
-                    @endif
-                    @if($project->client)
-                    <span class="text-[var(--color-border)]">·</span>
-                    <span>{{ $project->client }}</span>
-                    @endif
-                    @if($project->year)
-                    <span class="text-[var(--color-border)]">·</span>
-                    <span>{{ $project->year }}</span>
-                    @endif
+                    @if($project->category)<span>{{ $project->category->name }}</span>@endif
+                    @if($project->client)<span class="opacity-30">·</span><span>{{ $project->client }}</span>@endif
+                    @if($project->year)<span class="opacity-30">·</span><span>{{ $project->year }}</span>@endif
                 </div>
 
                 {{-- Arrow --}}
-                <span class="text-[var(--color-accent)] text-lg opacity-0 group-hover:opacity-100
-                             transition-all duration-300 -translate-x-2 group-hover:translate-x-0 shrink-0">
-                    →
-                </span>
+                <span class="text-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-1 group-hover:translate-x-0 shrink-0">→</span>
 
-                {{-- Thumbnail — fixed right, B&W default, color on row hover --}}
-                <div class="shrink-0 w-36 xl:w-52 overflow-hidden rounded-xl hidden md:block">
+                {{-- Thumbnail --}}
+                <div class="shrink-0 hidden md:block rounded-xl overflow-hidden"
+                     style="width:180px; min-width:180px; max-width:180px; height:101px; min-height:101px; max-height:101px;">
                     <img src="{{ $project->thumbnail_url }}"
                          alt="{{ $project->title }}"
-                         class="w-full aspect-video object-cover
-                                grayscale group-hover:grayscale-0
-                                scale-100 group-hover:scale-[1.04]
-                                transition-all duration-500 ease-out">
+                         style="width:180px; height:101px; min-width:180px; min-height:101px; object-fit:cover; display:block;"
+                         class="grayscale group-hover:grayscale-0 transition-all duration-500 ease-out group-hover:scale-105">
                 </div>
 
             </a>
