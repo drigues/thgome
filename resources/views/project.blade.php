@@ -3,7 +3,7 @@
 {{-- HERO --}}
 <section class="pt-24 md:pt-32 pb-6 md:pb-12 relative overflow-hidden">
     <div class="container mx-auto px-6">
-        <div class="max-w-6xl">
+        <div class="max-w-8xl">
             @if($project->category)
             <span class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-4 block" data-animate>
                 {{ $project->category->name }}
