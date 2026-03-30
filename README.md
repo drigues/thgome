@@ -8,7 +8,7 @@ Personal portfolio of **Thiago Rodrigues**, Product Designer with 10+ years of e
 
 ## About this project
 
-This repository is the source code of my personal portfolio — built from scratch as a full-stack project. I made it public so recruiters, collaborators, and fellow designers can see not just the final result, but the process behind it.
+This repository is the source code of my personal portfolio — built from scratch as a full-stack project. 
 
 Design and development are not separate disciplines in my workflow. This codebase reflects that.
 
@@ -64,7 +64,7 @@ Building my own portfolio means:
 - **Responsive cover images** — 4:3 on mobile, 16:9 on desktop
 - **Light / dark mode** toggle with localStorage persistence
 - **Printable CV** at `/cv` — same visual language, print-optimised for 2 A4 pages
-- **Admin panel** at `/admin` — full content management via Filament
+- **Admin panel** — full content management via Filament
 - **Zero-downtime deploys** via Laravel Forge with persistent shared storage
 
 ---
@@ -72,8 +72,6 @@ Building my own portfolio means:
 ## Notes
 
 This repository is public for transparency, not as a starter template. The codebase is specific to my content, design system, and infrastructure setup.
-
-If you're a recruiter or collaborator viewing this — the portfolio itself is the better place to start: [thgo.me](https://thgo.me)
 
 ---
 
