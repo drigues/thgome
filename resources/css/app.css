@@ -45,9 +45,9 @@ html, html.light {
 /* Splitting.js chars */
 .char { display: inline-block; overflow: hidden; }
 
-[data-split] .word {
-    display: inline-block;
-    white-space: nowrap;
+.splitting .word {
+    display: inline-block !important;
+    white-space: nowrap !important;
 }
 
 /* Page transition */
