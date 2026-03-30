@@ -93,8 +93,8 @@
                 {!! $project->description !!}
             </div>
             <aside class="hidden lg:block">
-                <div class="sticky top-32 space-y-3">
-                    <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-4">On this page</p>
+                <div class="sticky top-32 space-y-3 mt-12">
+                    <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-4 pt-4">On this page</p>
                     @php
                         preg_match_all('/<h2[^>]*>(.*?)<\/h2>/i', ($project->description ?? '') . ($project->description_two ?? ''), $matches);
                         $headings = $matches[1] ?? [];

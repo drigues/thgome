@@ -10,7 +10,7 @@
         <h1 class="font-heading font-extrabold leading-none mb-8 mt-0 text-[clamp(2.8rem,8vw,140px)]" data-split>
             {!! nl2br(e(\App\Models\Setting::get('hero_title', "Product\nDesigner."))) !!}
         </h1>
-        <p class="text-[var(--color-text-muted)] text-xl max-w-lg mb-12 opacity-0" data-hero-sub>
+        <p class="text-[var(--color-text-muted)] text-xl max-w-xl mb-12 opacity-0" data-hero-sub>
             {{ \App\Models\Setting::get('hero_subtitle', 'Turning complex challenges into clear, purposeful digital products.') }}
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-16 opacity-0" data-hero-cta>
@@ -28,7 +28,7 @@
             <span class="text-[var(--color-border)]">/</span>
             <span>5 industries</span>
             <span class="text-[var(--color-border)]">/</span>
-            <span>UK, USA, PT, Brazil projects</span>
+            <span>UK, USA, PT, BR projects</span>
         </div>
     </div>
     <div class="absolute right-0 top-1/3 w-[50vw] h-[50vw] rounded-full bg-[var(--color-accent)]/4 blur-[100px] pointer-events-none"></div>
@@ -198,11 +198,11 @@
                 <h2 class="font-heading font-bold text-4xl md:text-5xl mb-8 leading-none" data-animate>
                     {!! \App\Models\Setting::get('about_title', 'Designer. Builder.<br>Systems thinker.') !!}
                 </h2>
-                <p class="text-[var(--color-text-muted)] text-lg leading-relaxed mb-10 line-clamp-4" data-animate>
-                    I'm Thiago Rodrigues — a Product Designer with 10+ years of experience turning complex challenges into clear, purposeful digital products.
+                <p class="text-[var(--color-text-muted)] text-lg leading-relaxed mb-10 line-clamp-4 max-w-lx" data-animate>
+                    I'm Thiago Rodrigues — a Product Designer with 10+ years of experience delivering end-to-end digital products for enterprise corporations and growth-stage startups.
                 </p>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-10" data-animate>
-                    @foreach([['10+','yrs exp.'],['5','industries'],['2×','Google Award'],['3','live products']] as $stat)
+                    @foreach([['10+','yrs exp.'],['5','industries'],['3','live products'],['2×','Google Award']] as $stat)
                     <div class="border border-[var(--color-border)] rounded-xl p-4 text-center">
                         <p class="font-heading font-bold text-3xl text-[var(--color-accent)]">{{ $stat[0] }}</p>
                         <p class="text-[var(--color-text-muted)] text-xs mt-1">{{ $stat[1] }}</p>
