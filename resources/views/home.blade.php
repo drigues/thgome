@@ -10,7 +10,7 @@
         <h1 class="font-heading font-extrabold leading-none mb-8 mt-0 text-[clamp(2.8rem,8vw,140px)]" data-split>
             {!! nl2br(e(\App\Models\Setting::get('hero_title', "Product\nDesigner."))) !!}
         </h1>
-        <p class="text-[var(--color-text-muted)] text-xl max-w-xl mb-12 opacity-0" data-hero-sub>
+        <p class="text-[var(--color-text-muted)] text-xl mb-12 opacity-0" data-hero-sub>
             {{ \App\Models\Setting::get('hero_subtitle', 'Turning complex challenges into clear, purposeful digital products.') }}
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-16 opacity-0" data-hero-cta>
@@ -260,7 +260,7 @@
             <div x-show="active === {{ $i }}"
                  x-transition:enter="transition duration-500"
                  x-transition:enter-start="opacity-0 translate-y-4"
-                 class="max-w-3xl">
+                 class="max-w-4xl">
                 <p class="font-heading text-2xl md:text-3xl font-medium leading-relaxed mb-10 text-[var(--color-text)]">
                     "{{ $t->content }}"
                 </p>
