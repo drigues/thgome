@@ -86,7 +86,7 @@
 
 {{-- DESCRIPTION PART 1 --}}
 @if($project->description)
-<section class="py-16 md:py-20">
+<section class="py-10 md:py-10">
     <div class="container mx-auto px-6">
         <div class="grid lg:grid-cols-[1fr_280px] gap-16 items-start max-w-6xl mx-auto">
             <div class="prose-portfolio min-w-0">
@@ -125,7 +125,7 @@
     $blockLayout = $project->image_block_layout ?? 'grid-2';
 @endphp
 @if($imageBlock->count() && $blockLayout !== 'none')
-<section class="py-12 md:py-16" x-data="{ isOpen: false, currentImage: '' }">
+<section class="py-2 md:py-2" x-data="{ isOpen: false, currentImage: '' }">
     <div class="container mx-auto px-6">
         <div class="max-w-6xl mx-auto">
 
@@ -202,7 +202,7 @@
 
 {{-- DESCRIPTION PART 2 --}}
 @if($project->description_two)
-<section class="py-16 md:py-20">
+<section class="py-10 md:py-20">
     <div class="container mx-auto px-6">
         <div class="max-w-6xl mx-auto">
             <div class="prose-portfolio min-w-0 lg:max-w-[calc(100%-316px)]">
