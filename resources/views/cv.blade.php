@@ -172,7 +172,7 @@
         </div>
         <div class="cv-job-company">Thr33 Labs · Portugal</div>
         <ul>
-            <li>Founded and led product strategy, design, and development across multiple SaaS products — operating as a solo end-to-end practitioner across UX, frontend, backend, and SEO.</li>
+            <li>Founded and led product strategy, design, and development across digital products for portuguese market — operating as a solo end-to-end practitioner across UX, frontend, backend, and SEO.</li>
             <li>Currently shipping a multi-tenant platform from zero to production in PHP Laravel 12, Filament, and Tailwind CSS — covering role-based permissions, structured SEO architecture, and a modular content pipeline.</li>
         </ul>
     </div>
