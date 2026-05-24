@@ -20,7 +20,7 @@
         }
 
         .cv-header { margin-bottom: 1.2rem; /*border-bottom: 2px solid var(--color-accent, #111); padding-bottom: 1.5rem; */ } 
-        .cv-name { font-family: 'Syne', sans-serif; display:inline-flex; padding-right:3rem; font-size: 2.5rem; font-weight: 800; line-height: 1; margin: 0 0 0.5rem; }
+        .cv-name { font-family: 'Syne', sans-serif; display:inline-flex; padding-right:1.5rem; font-size: 2.5rem; font-weight: 800; line-height: 1; margin: 0 0 0.5rem; }
         .cv-role { font-family: 'Syne', sans-serif; font-size: 1rem; display:inline-flex; font-weight: 600; color: var(--color-accent, #111); text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 0.75rem; }
         .cv-contacts { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--color-text-muted, #555); }
         .cv-contacts a { color: inherit; text-decoration:underline; }
@@ -156,7 +156,7 @@
         </div>
         <div class="cv-skill-block" style="margin-top:0.5rem">
             <div class="cv-skill-label">AI Tools</div>
-            Claude Code, Codex, Figma Make, Base44, Lovable, Gemini, Perplexity
+            Claude Code, Codex, Figma Make, Cursor, Base44, Lovable, Gemini
         </div>
     </div>
 </section>
@@ -173,7 +173,7 @@
         <div class="cv-job-company">Thr33 Labs · Portugal</div>
         <ul>
             <li>Founded and led product strategy, design, and development across multiple SaaS products — operating as a solo end-to-end practitioner across UX, frontend, backend, and SEO.</li>
-            <li>Currently shipping a multi-tenant platform from zero to production in Laravel 12, Filament, and Tailwind CSS — covering role-based permissions, structured SEO architecture, and a modular content pipeline.</li>
+            <li>Currently shipping a multi-tenant platform from zero to production in PHP Laravel 12, Filament, and Tailwind CSS — covering role-based permissions, structured SEO architecture, and a modular content pipeline.</li>
         </ul>
     </div>
 
