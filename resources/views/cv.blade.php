@@ -152,11 +152,11 @@
         </div>
         <div class="cv-skill-block" style="margin-top:0.5rem">
             <div class="cv-skill-label">Technical</div>
-            Full-Stack Dev (Laravel, Rails, Python, JS), Git, Hotjar, LogRocket, Data Analysis, Business Intelligence
+            Full-Stack Dev (PHP Laravel, Ruby on Rails, Python, JS), Git, Hotjar, LogRocket, Data Analysis, Business Intelligence
         </div>
         <div class="cv-skill-block" style="margin-top:0.5rem">
             <div class="cv-skill-label">AI Tools</div>
-            Claude Code, Lovable, Copilot, v0, Figma Make, Gemini
+            Claude Code, Codex, Figma Make, Base44, Lovable, Gemini, Perplexity
         </div>
     </div>
 </section>
@@ -167,13 +167,13 @@
 
     <div class="cv-job">
         <div class="cv-job-header">
-            <span class="cv-job-title">Principal Product Designer & Builder</span>
+            <span class="cv-job-title">Founder & Product Builder</span>
             <span class="cv-job-dates">Ago 2025 – Present</span>
         </div>
-        <div class="cv-job-company">Thr33 (SaaS Holding) · Portugal</div>
+        <div class="cv-job-company">Thr33 Labs · Portugal</div>
         <ul>
-            <li>Founded and led end-to-end product design and development of Navego — a live SaaS marketplace connecting Brazilian immigrants in Portugal with verified service providers, built solo across UX, frontend, backend, and SEO.</li>
-            <li>Designed and shipped a multi-tenant freemium platform (Laravel 12, Filament, Tailwind CSS) with a role-based permission system, structured SEO architecture, and a modular content pipeline — from zero to production.</li>
+            <li>Founded and led product strategy, design, and development across multiple SaaS products — operating as a solo end-to-end practitioner across UX, frontend, backend, and SEO.</li>
+            <li>Currently shipping a multi-tenant platform from zero to production in Laravel 12, Filament, and Tailwind CSS — covering role-based permissions, structured SEO architecture, and a modular content pipeline.</li>
         </ul>
     </div>
 
@@ -182,7 +182,7 @@
             <span class="cv-job-title">User Experience Designer</span>
             <span class="cv-job-dates">May 2023 – Jul 2025</span>
         </div>
-        <div class="cv-job-company">McKesson (USA remote) · via Randstad Digital</div>
+        <div class="cv-job-company">McKesson via Randstad Digital · Texas, USA remote</div>
         <ul>
             <li>Led end-to-end design across discovery, definition, and delivery for an enterprise healthcare distribution platform used by tens of thousands of professionals</li>
             <li>Conducted user interviews, facilitated cross-functional workshops, and mapped complex workflows to identify friction points and growth opportunities</li>
@@ -207,7 +207,7 @@
             <span class="cv-job-title">UX Generalist</span>
             <span class="cv-job-dates">Apr 2021 – Feb 2023</span>
         </div>
-        <div class="cv-job-company">MindTools · Edinburgh, UK remote · via DevSquad</div>
+        <div class="cv-job-company">MindTools via DevSquad · Edinburgh, UK remote</div>
         <ul>
             <li>Shaped B2B and B2C product experiences for a learning platform with 2M+ professionals, contributing to measurable improvements in engagement and feature adoption</li>
             <li>Built Design System components in Figma, ran discovery workshops, and conducted ongoing user research including moderated usability tests and behavioural analysis</li>
