@@ -20,7 +20,7 @@
         }
 
         .cv-header { margin-bottom: 1.2rem; /*border-bottom: 2px solid var(--color-accent, #111); padding-bottom: 1.5rem; */ } 
-        .cv-name { font-family: 'Syne', sans-serif; display:inline-flex; padding-right:1.5rem; font-size: 2.5rem; font-weight: 800; line-height: 1; margin: 0 0 0.5rem; }
+        .cv-name { font-family: 'Syne', sans-serif; display:inline-flex; padding-right:.5rem; font-size: 2.5rem; font-weight: 800; line-height: 1; margin: 0 0 0.5rem; }
         .cv-role { font-family: 'Syne', sans-serif; font-size: 1rem; display:inline-flex; font-weight: 600; color: var(--color-accent, #111); text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 0.75rem; }
         .cv-contacts { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--color-text-muted, #555); }
         .cv-contacts a { color: inherit; text-decoration:underline; }
