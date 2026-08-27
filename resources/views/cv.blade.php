@@ -123,7 +123,7 @@
 {{-- HEADER --}}
 <header class="cv-header">
     <h1 class="cv-name">Thiago Rodrigues</h1>
-    <p class="cv-role">Product Designer</p>
+    <p class="cv-role">Product Builder</p>
     <div class="cv-contacts">
         <a href="mailto:thgo.me@outlook.com">thgo.me@outlook.com</a>
         <span>+351 939 341 853</span>
@@ -135,7 +135,7 @@
 {{-- PROFILE --}}
 <section class="cv-section">
     <h2 class="cv-section-title">Profile</h2>
-    <p class="cv-profile">Product Designer with 10+ years of experience delivering end-to-end digital products for enterprise corporations and growth-stage startups across healthcare, renewable energy, EdTech, and finance. I work across the full design process — from discovery and research through to high-fidelity interfaces and post-launch iteration — always grounded in user insights and connected to measurable business outcomes. My background combines strategic UX thinking with hands-on technical fluency, having worked across markets in the USA, UK, Portugal, Ireland, Chile, and Brazil.</p>
+    <p class="cv-profile">With 10+ years of experience delivering end-to-end digital products for enterprise corporations and growth-stage startups across Healthcare, Renewable Energy, EdTech, and Finance. I work across the full design process — from discovery and research through to high-fidelity interfaces and post-launch iteration — always grounded in user insights and connected to measurable business outcomes. My background combines strategic UX thinking with hands-on technical fluency, having worked across markets in the USA, UK, Portugal, Ireland, Chile, and Brazil.</p>
 </section>
 
 {{-- SKILLS --}}
@@ -167,7 +167,7 @@
 
     <div class="cv-job">
         <div class="cv-job-header">
-            <span class="cv-job-title">Founder & Product Builder</span>
+            <span class="cv-job-title">Full Stack Developer & Product Builder</span>
             <span class="cv-job-dates">Ago 2025 – Present</span>
         </div>
         <div class="cv-job-company">Thr33 Labs · Portugal</div>
