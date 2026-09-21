@@ -123,17 +123,18 @@
 @php
     $imageBlock = $project->getMedia('image_block');
     $blockLayout = $project->image_block_layout ?? 'grid-2';
+    $imageBlockUrls = $imageBlock->map(fn($m) => $m->getUrl())->values();
 @endphp
 @if($imageBlock->count() && $blockLayout !== 'none')
-<section class="py-2 md:py-2" x-data="{ isOpen: false, currentImage: '' }">
+<section class="py-2 md:py-2" x-data="projectLightbox(@js($imageBlockUrls))">
     <div class="container mx-auto px-6">
         <div class="max-w-6xl mx-auto">
 
             @if($blockLayout === 'full')
             {{-- Full width --}}
             <div class="space-y-4">
-                @foreach($imageBlock as $media)
-                <div class="w-full overflow-hidden rounded-xl cursor-pointer" @click="currentImage = '{{ $media->getUrl() }}'; isOpen = true">
+                @foreach($imageBlock as $i => $media)
+                <div class="w-full overflow-hidden rounded-xl cursor-pointer" @click="open({{ $i }}, $event.currentTarget)">
                     <img src="{{ $media->getUrl() }}" alt="{{ $project->title }}"
                          class="w-full h-auto hover:scale-[1.01] transition-transform duration-500" loading="lazy">
                 </div>
@@ -143,8 +144,8 @@
             @elseif($blockLayout === 'grid-2')
             {{-- 2 columns --}}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                @foreach($imageBlock as $media)
-                <div class="overflow-hidden rounded-xl cursor-pointer" @click="currentImage = '{{ $media->getUrl() }}'; isOpen = true">
+                @foreach($imageBlock as $i => $media)
+                <div class="overflow-hidden rounded-xl cursor-pointer" @click="open({{ $i }}, $event.currentTarget)">
                     <img src="{{ $media->getUrl() }}" alt="{{ $project->title }}"
                          class="w-full h-auto hover:scale-[1.02] transition-transform duration-500" loading="lazy">
                 </div>
@@ -154,8 +155,8 @@
             @elseif($blockLayout === 'grid-3')
             {{-- 3 columns --}}
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                @foreach($imageBlock as $media)
-                <div class="overflow-hidden rounded-xl cursor-pointer" @click="currentImage = '{{ $media->getUrl() }}'; isOpen = true">
+                @foreach($imageBlock as $i => $media)
+                <div class="overflow-hidden rounded-xl cursor-pointer" @click="open({{ $i }}, $event.currentTarget)">
                     <img src="{{ $media->getUrl() }}" alt="{{ $project->title }}"
                          class="w-full h-auto hover:scale-[1.02] transition-transform duration-500" loading="lazy">
                 </div>
@@ -167,7 +168,7 @@
             <div class="space-y-4">
                 @foreach($imageBlock as $i => $media)
                 @if($i === 0)
-                <div class="w-full overflow-hidden rounded-xl cursor-pointer" @click="currentImage = '{{ $media->getUrl() }}'; isOpen = true">
+                <div class="w-full overflow-hidden rounded-xl cursor-pointer" @click="open({{ $i }}, $event.currentTarget)">
                     <img src="{{ $media->getUrl() }}" alt="{{ $project->title }}"
                          class="w-full h-auto" loading="lazy">
                 </div>
@@ -175,7 +176,7 @@
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 @endif
                 @if($i > 0)
-                <div class="overflow-hidden rounded-xl cursor-pointer" @click="currentImage = '{{ $media->getUrl() }}'; isOpen = true">
+                <div class="overflow-hidden rounded-xl cursor-pointer" @click="open({{ $i }}, $event.currentTarget)">
                     <img src="{{ $media->getUrl() }}" alt="{{ $project->title }}"
                          class="w-full h-auto hover:scale-[1.02] transition-transform duration-500" loading="lazy">
                 </div>
@@ -185,15 +186,7 @@
             </div>
             @endif
 
-            {{-- Lightbox --}}
-            <div x-show="isOpen" x-transition
-                 class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-                 @click.self="isOpen = false"
-                 @keydown.escape.window="isOpen = false">
-                <button @click="isOpen = false"
-                        class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl leading-none">✕</button>
-                <img :src="currentImage" class="max-h-[90vh] max-w-[90vw] object-contain rounded-xl">
-            </div>
+            <x-project-lightbox :alt="$project->title" />
 
         </div>
     </div>
@@ -214,25 +207,23 @@
 @endif
 
 {{-- GALLERY (existing, kept as before) --}}
-@php $gallery = $project->getMedia('gallery'); @endphp
+@php
+    $gallery = $project->getMedia('gallery');
+    $galleryUrls = $gallery->map(fn($m) => $m->getUrl())->values();
+@endphp
 @if($gallery->count())
-<section class="py-12 bg-[var(--color-bg-alt)]" x-data="{ isOpen: false, currentImage: '' }">
+<section class="py-12 bg-[var(--color-bg-alt)]" x-data="projectLightbox(@js($galleryUrls))">
     <div class="container mx-auto px-6">
         <p class="text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mb-8">Resources</p>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-4 max-w-6xl mx-auto">
             @foreach($gallery as $i => $media)
             <div class="{{ $i === 0 ? 'col-span-2 row-span-2' : '' }} overflow-hidden rounded-xl cursor-pointer aspect-square"
-                 @click="currentImage = '{{ $media->getUrl() }}'; isOpen = true">
+                 @click="open({{ $i }}, $event.currentTarget)">
                 <img src="{{ $media->getUrl() }}" alt="{{ $project->title }}"
                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy">
             </div>
             @endforeach
-            <div x-show="isOpen" x-transition
-                 class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-                 @click.self="isOpen = false" @keydown.escape.window="isOpen = false">
-                <button @click="isOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl">✕</button>
-                <img :src="currentImage" class="max-h-[90vh] max-w-[90vw] object-contain rounded-xl">
-            </div>
+            <x-project-lightbox :alt="$project->title" />
         </div>
     </div>
 </section>
@@ -297,6 +288,60 @@
 
 @push('scripts')
 <script>
+function projectLightbox(images) {
+    return {
+        images: images,
+        index: 0,
+        isOpen: false,
+        trigger: null,
+        touchStartX: null,
+        get current() {
+            return this.images[this.index] ?? '';
+        },
+        open(i, el = null) {
+            this.index = i;
+            this.trigger = el;
+            this.isOpen = true;
+            this.$nextTick(() => {
+                this.$refs.dialog?.focus();
+                this.transition();
+            });
+        },
+        close() {
+            this.isOpen = false;
+            this.trigger?.focus?.();
+        },
+        next() {
+            this.index = (this.index + 1) % this.images.length;
+            this.transition();
+        },
+        prev() {
+            this.index = (this.index - 1 + this.images.length) % this.images.length;
+            this.transition();
+        },
+        transition() {
+            const img = this.$refs.image;
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!img || reduce || !window.gsap) {
+                return;
+            }
+            gsap.fromTo(img, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
+        },
+        onTouchStart(e) {
+            this.touchStartX = e.changedTouches[0].screenX;
+        },
+        onTouchEnd(e) {
+            if (this.touchStartX === null || this.images.length < 2) {
+                return;
+            }
+            const dx = e.changedTouches[0].screenX - this.touchStartX;
+            if (Math.abs(dx) > 50) {
+                dx < 0 ? this.next() : this.prev();
+            }
+            this.touchStartX = null;
+        },
+    };
+}
 document.addEventListener('DOMContentLoaded', () => {
     if (window.Splitting) {
         Splitting({ target: 'h1', by: 'chars' });

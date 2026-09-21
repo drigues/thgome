@@ -119,7 +119,7 @@
         <h2 class="font-heading font-bold text-4xl md:text-5xl mb-16" data-animate>Timeline</h2>
         <div class="space-y-0 border-l-2 border-[var(--color-border)] ml-4">
             @foreach([
-                ['2025 — Present','Founder & Product Builder','Thr33 Labs (Portugal)','Building digital products for the portuguese market'],
+                ['2025 — Present','Full Stack Product Builder & Consultant','Thr33 Labs (Portugal)','Leading product strategy, design, and development across digital products for the Portuguese market'],
                 ['2023 — 2025','User Experience Designer','McKesson (USA - Remote)','Enterprise healthcare platform — redesigning clinical workflows for 75,000+ users across North America.'],
                 ['2023 — 2023','UX/UI Designer','BladeInsight (Portugal - Hybrid)','Built and scaled design system from scratch for IoT wind-energy platform. Led cross-functional team of 8.'],
                 ['2021 — 2023','UX Generalist','MindTools (Edinburgh/UK - Remote)','Redesigned the core learning experience for 30M+ global users. Led research sprints and shipped 3 major features.'],
