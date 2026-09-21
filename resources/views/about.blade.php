@@ -120,7 +120,7 @@
         <div class="space-y-0 border-l-2 border-[var(--color-border)] ml-4">
             @foreach([
                 ['2025 — Present','Full Stack Product Builder & Consultant','Thr33 Labs (Portugal)','Leading product strategy, design, and development across digital products for the Portuguese market.'],
-                ['2023 — 2025','User Experience Designer','McKesson (USA - Remote)','Enterprise healthcare platform — UX design for McKesson's B2B generic-drug platform, covering product recommendations, backorder communication, and cross-team journey mapping.'],
+                ['2023 — 2025','User Experience Designer','McKesson (USA - Remote)','Enterprise healthcare platform — UX design for McKesson\'s B2B generic-drug platform, covering product recommendations, backorder communication, and cross-team journey mapping.'],
                 ['2023 — 2023','UX/UI Designer','BladeInsight (Portugal - Hybrid)','Establishing UX practices and maturity across teams, unblocked key user journeys and interfaces for Web Inspection and Robotics Control platforms. '],
                 ['2021 — 2023','UX Generalist','MindTools (Edinburgh/UK - Remote)','UX research, design system, and interface design for a 24M-user learning platform — covering a B2C website redesign, an internal CMS, and discovery work on search and content recommendation.'],
                 ['2019 — 2021','Service Designer','Montepascual (Ceará/Brazil)','Managing teams, projects, and events for the co-brands under SDG Actions, Customer Experience, Branding, Marketing, Sales Strategy, and Social Media.'],
