@@ -45,11 +45,11 @@
 
 
 {{-- EDUCATION --}}
-<section class="py-32">
+<section class="py-16">
     <div class="container mx-auto px-6">
         <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest uppercase mb-4" data-animate>Education</p>
         <h2 class="font-heading font-bold text-4xl md:text-5xl mb-16" data-animate>Academic Background</h2>
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-3 gap-8">
             <div class="border border-[var(--color-border)] rounded-2xl p-8" data-animate>
                 <p class="text-[var(--color-accent)] font-mono text-xs tracking-widest mb-2">2026 — 2028</p>
                 <h3 class="font-heading font-semibold text-xl mb-1">CENFIM</h3>
@@ -119,15 +119,14 @@
         <h2 class="font-heading font-bold text-4xl md:text-5xl mb-16" data-animate>Timeline</h2>
         <div class="space-y-0 border-l-2 border-[var(--color-border)] ml-4">
             @foreach([
-                ['2025 — Present','Full Stack Product Builder & Consultant','Thr33 Labs (Portugal)','Leading product strategy, design, and development across digital products for the Portuguese market'],
-                ['2023 — 2025','User Experience Designer','McKesson (USA - Remote)','Enterprise healthcare platform — redesigning clinical workflows for 75,000+ users across North America.'],
-                ['2023 — 2023','UX/UI Designer','BladeInsight (Portugal - Hybrid)','Built and scaled design system from scratch for IoT wind-energy platform. Led cross-functional team of 8.'],
-                ['2021 — 2023','UX Generalist','MindTools (Edinburgh/UK - Remote)','Redesigned the core learning experience for 30M+ global users. Led research sprints and shipped 3 major features.'],
+                ['2025 — Present','Full Stack Product Builder & Consultant','Thr33 Labs (Portugal)','Leading product strategy, design, and development across digital products for the Portuguese market.'],
+                ['2023 — 2025','User Experience Designer','McKesson (USA - Remote)','Enterprise healthcare platform — UX design for McKesson's B2B generic-drug platform, covering product recommendations, backorder communication, and cross-team journey mapping.'],
+                ['2023 — 2023','UX/UI Designer','BladeInsight (Portugal - Hybrid)','Establishing UX practices and maturity across teams, unblocked key user journeys and interfaces for Web Inspection and Robotics Control platforms. '],
+                ['2021 — 2023','UX Generalist','MindTools (Edinburgh/UK - Remote)','UX research, design system, and interface design for a 24M-user learning platform — covering a B2C website redesign, an internal CMS, and discovery work on search and content recommendation.'],
                 ['2019 — 2021','Service Designer','Montepascual (Ceará/Brazil)','Managing teams, projects, and events for the co-brands under SDG Actions, Customer Experience, Branding, Marketing, Sales Strategy, and Social Media.'],
                 ['2015 — 2019','UX/UI Designer','Progress Systems (Dublin/Ireland)','Fintech products — payment processing dashboards, merchant onboarding, compliance workflows.'],
-                ['2016 — 2017','Product Designer','Granber (Dublin/Ireland)','Full-stack web design for industrial textiles. E-commerce, B2B portal, product configurator.'],
                 ['2011 — 2015','Web Designer','Freelancer','Consultant, product developer, and UX/UI designer delivering digital products across Ireland, Chile, and Brazil.'],
-                ['2008 — 2011','Web Designer','Edson Queiroz Group (Ceará/Brazil)','Visual design and marketing materials for one of Brazil\'s largest conglomerates.'],
+                ['2008 — 2011','Web Designer','Edson Queiroz Group (Ceará/Brazil)','Working with requirements analysis, prototyping, interaction design, user interface design, web development, usability test, and user interview for one of Brazil\'s largest conglomerates.'],
             ] as $entry)
             <div class="relative pl-10 pb-12" data-animate>
                 <div class="absolute left-0 top-1 w-3 h-3 rounded-full bg-[var(--color-accent)] -translate-x-[7px]"></div>
